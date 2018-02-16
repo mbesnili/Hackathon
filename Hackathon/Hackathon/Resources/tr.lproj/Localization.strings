@@ -5,3 +5,11 @@
   Created by mbesnili on 16.02.2018.
   Copyright © 2018 mbesnili. All rights reserved.
 */
+
+"login.usernamePlaceholderText" = "Kullanıcı adı";
+
+"login.passwordPlaceholderText" = "Şifre";
+
+"login.loginButtonTitle" = "Giriş yap";
+
+

@@ -16,14 +16,56 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bkc-Ce-3Iq">
+                                <rect key="frame" x="16" y="80" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Zwe-eQ-Xgl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tFt-Ga-ihH">
+                                <rect key="frame" x="16" y="140" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hUs-ru-5aK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oat-D2-0zb">
+                                <rect key="frame" x="16" y="240" width="343" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="vCX-Q1-7L5"/>
+                                </constraints>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Oat-D2-0zb" firstAttribute="trailing" secondItem="tFt-Ga-ihH" secondAttribute="trailing" id="5W5-aQ-vQF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bkc-Ce-3Iq" secondAttribute="trailing" constant="16" id="NDJ-DH-neK"/>
+                            <constraint firstItem="Bkc-Ce-3Iq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Phc-wT-TPS"/>
+                            <constraint firstItem="Oat-D2-0zb" firstAttribute="leading" secondItem="tFt-Ga-ihH" secondAttribute="leading" id="bWd-1o-G53"/>
+                            <constraint firstItem="Bkc-Ce-3Iq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hYp-eM-S8U"/>
+                            <constraint firstItem="tFt-Ga-ihH" firstAttribute="trailing" secondItem="Bkc-Ce-3Iq" secondAttribute="trailing" id="kOh-70-soW"/>
+                            <constraint firstItem="tFt-Ga-ihH" firstAttribute="top" secondItem="Bkc-Ce-3Iq" secondAttribute="bottom" constant="20" id="nEq-qW-WtZ"/>
+                            <constraint firstItem="tFt-Ga-ihH" firstAttribute="leading" secondItem="Bkc-Ce-3Iq" secondAttribute="leading" id="rNP-zk-TIF"/>
+                            <constraint firstItem="Oat-D2-0zb" firstAttribute="top" secondItem="tFt-Ga-ihH" secondAttribute="bottom" constant="60" id="z3x-Qb-qvc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="FRR-2K-pnr"/>
+                    <connections>
+                        <outlet property="loginButton" destination="Oat-D2-0zb" id="7fR-jh-cG2"/>
+                        <outlet property="passwordTextField" destination="tFt-Ga-ihH" id="gH6-EQ-gHs"/>
+                        <outlet property="usernameTextField" destination="Bkc-Ce-3Iq" id="fOg-nF-feh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="6"/>
+            <point key="canvasLocation" x="389.60000000000002" y="5.8470764617691158"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bxq-Qm-cRy">
