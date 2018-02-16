@@ -21,4 +21,13 @@ extension Status: Unmarshaling {
         success = try object.value(for: "success")
         message = try object.value(for: "message")
     }
+
+    var error: Error {
+        switch code {
+        case 0 ... 200:
+            return APIManagerError.noError
+        default:
+            return APIManagerError.noError
+        }
+    }
 }

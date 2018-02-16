@@ -13,3 +13,7 @@
 "login.loginButtonTitle" = "Login";
 
 "login.title" = "Login";
+
+"error.title" = "Error";
+
+"common.okTitle" = "Ok";
