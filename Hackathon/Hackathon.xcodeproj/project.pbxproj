@@ -14,6 +14,7 @@
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
 		7736AE7A20376FE800BB6780 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7736AE7C20376FE800BB6780 /* Localization.strings */; };
+		7736AE80203771F400BB6780 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7F203771F400BB6780 /* R.generated.swift */; };
 		7775D31E2036E015000935CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31D2036E015000935CA /* AppDelegate.swift */; };
 		7775D3202036E015000935CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31F2036E015000935CA /* ViewController.swift */; };
 		7775D3232036E015000935CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7775D3212036E015000935CA /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		7736AE7B20376FE800BB6780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		7736AE7D20376FFC00BB6780 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localization.strings; sourceTree = "<group>"; };
+		7736AE7F203771F400BB6780 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		7775D31A2036E015000935CA /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7775D31D2036E015000935CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7775D31F2036E015000935CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		7736AE7720376F9500BB6780 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7736AE7F203771F400BB6780 /* R.generated.swift */,
 				7775D3212036E015000935CA /* Main.storyboard */,
 				7775D3242036E015000935CA /* Assets.xcassets */,
 				7775D3262036E015000935CA /* LaunchScreen.storyboard */,
@@ -211,6 +214,7 @@
 			buildPhases = (
 				7646B0E0115EE6BA659D96D9 /* [CP] Check Pods Manifest.lock */,
 				7775D34B2036EB89000935CA /* ShellScript */,
+				7736AE7E2037719C00BB6780 /* ShellScript */,
 				7775D3162036E015000935CA /* Sources */,
 				7775D3172036E015000935CA /* Frameworks */,
 				7775D3182036E015000935CA /* Resources */,
@@ -353,12 +357,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +389,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7736AE7E2037719C00BB6780 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
 		};
 		7775D34B2036EB89000935CA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -520,6 +539,7 @@
 				7775D31E2036E015000935CA /* AppDelegate.swift in Sources */,
 				7736AE6F20376A8A00BB6780 /* Location.swift in Sources */,
 				7736AE6D203768AA00BB6780 /* Status.swift in Sources */,
+				7736AE80203771F400BB6780 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
