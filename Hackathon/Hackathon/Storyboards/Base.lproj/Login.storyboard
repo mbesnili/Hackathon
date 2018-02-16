@@ -42,7 +42,6 @@
                                 </constraints>
                                 <connections>
                                     <action selector="loginButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="RH8-mo-th7"/>
-                                    <segue destination="HKW-NW-xKH" kind="presentation" identifier="seguePackageList" id="MZT-Hu-Rcx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,6 +64,7 @@
                         <outlet property="loginButton" destination="Oat-D2-0zb" id="7fR-jh-cG2"/>
                         <outlet property="passwordTextField" destination="tFt-Ga-ihH" id="gH6-EQ-gHs"/>
                         <outlet property="usernameTextField" destination="Bkc-Ce-3Iq" id="fOg-nF-feh"/>
+                        <segue destination="HKW-NW-xKH" kind="presentation" identifier="seguePackageList" id="FAl-Vi-BNy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

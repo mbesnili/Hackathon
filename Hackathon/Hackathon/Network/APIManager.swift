@@ -17,20 +17,30 @@ enum APIManagerError: Error {
 class APIManager {
 
     static func login(with username: String, password: String, completion: @escaping (Result<LoginResponse>) -> Void) {
-        Alamofire.request(UserRouter.login(username: username, password: password)).responseJSON { rawResponse in
-            switch rawResponse.result {
-            case let .failure(error):
-                completion(.failure(error))
-            case let .success(response):
-                guard let responseDictionary = response as? [String: Any] else {
-                    return
-                }
-                if let loginResponse = try? LoginResponse(object: responseDictionary) {
-                    completion(.success(loginResponse))
-                } else {
-                    completion(.failure(APIManagerError.parsingError))
+        #if DEBUG
+            let data = try! Data(contentsOf: R.file.loginResponseJson()!, options: Data.ReadingOptions.alwaysMapped)
+            guard let dictionary = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any], let loginResponse = try? LoginResponse(object: dictionary) else {
+                return
+            }
+            completion(.success(loginResponse))
+        #else
+
+            Alamofire.request(UserRouter.login(username: username, password: password)).responseJSON { rawResponse in
+
+                switch rawResponse.result {
+                case let .failure(error):
+                    completion(.failure(error))
+                case let .success(response):
+                    guard let responseDictionary = response as? [String: Any] else {
+                        return
+                    }
+                    if let loginResponse = try? LoginResponse(object: responseDictionary) {
+                        completion(.success(loginResponse))
+                    } else {
+                        completion(.failure(APIManagerError.parsingError))
+                    }
                 }
             }
-        }
+        #endif
     }
 }
