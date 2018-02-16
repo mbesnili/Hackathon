@@ -25,6 +25,7 @@
 		7736AE9420378BBE00BB6780 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE9320378BBE00BB6780 /* UIViewControllerExtensions.swift */; };
 		7736AE9620378DA500BB6780 /* Package.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7736AE9520378DA500BB6780 /* Package.storyboard */; };
 		7736AE98203792E100BB6780 /* PackageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE97203792E100BB6780 /* PackageListViewController.swift */; };
+		7736AE9C2037A11B00BB6780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7736AE9E2037A11B00BB6780 /* InfoPlist.strings */; };
 		7775D31E2036E015000935CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31D2036E015000935CA /* AppDelegate.swift */; };
 		7775D3202036E015000935CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31F2036E015000935CA /* BaseViewController.swift */; };
 		7775D3232036E015000935CA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7775D3212036E015000935CA /* Login.storyboard */; };
@@ -72,6 +73,9 @@
 		7736AE9320378BBE00BB6780 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		7736AE9520378DA500BB6780 /* Package.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Package.storyboard; sourceTree = "<group>"; };
 		7736AE97203792E100BB6780 /* PackageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListViewController.swift; sourceTree = "<group>"; };
+		7736AE9920379F2200BB6780 /* PermissionConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PermissionConfiguration.xcconfig; sourceTree = "<group>"; };
+		7736AE9D2037A11B00BB6780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7736AE9F2037A11D00BB6780 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7775D31A2036E015000935CA /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7775D31D2036E015000935CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7775D31F2036E015000935CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				7736AE7F203771F400BB6780 /* R.generated.swift */,
 				7775D3242036E015000935CA /* Assets.xcassets */,
 				7736AE7C20376FE800BB6780 /* Localization.strings */,
+				7736AE9E2037A11B00BB6780 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				7736AE892037776E00BB6780 /* Network */,
 				7775D31D2036E015000935CA /* AppDelegate.swift */,
 				7775D3292036E015000935CA /* Info.plist */,
+				7736AE9920379F2200BB6780 /* PermissionConfiguration.xcconfig */,
 			);
 			path = Hackathon;
 			sourceTree = "<group>";
@@ -347,6 +353,11 @@
 					7775D3192036E015000935CA = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					7775D32D2036E015000935CA = {
 						CreatedOnToolsVersion = 9.2;
@@ -387,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7775D3282036E015000935CA /* LaunchScreen.storyboard in Resources */,
+				7736AE9C2037A11B00BB6780 /* InfoPlist.strings in Resources */,
 				7736AE7A20376FE800BB6780 /* Localization.strings in Resources */,
 				7736AE84203774C400BB6780 /* LoginResponse.json in Resources */,
 				7775D3252036E015000935CA /* Assets.xcassets in Resources */,
@@ -658,6 +670,15 @@
 				7736AE7D20376FFC00BB6780 /* tr */,
 			);
 			name = Localization.strings;
+			sourceTree = "<group>";
+		};
+		7736AE9E2037A11B00BB6780 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7736AE9D2037A11B00BB6780 /* en */,
+				7736AE9F2037A11D00BB6780 /* tr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		7775D3212036E015000935CA /* Login.storyboard */ = {

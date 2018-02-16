@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  Hackathon
+
+  Created by mbesnili on 17.02.2018.
+  Copyright © 2018 mbesnili. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription" = "Hackathon needs your location";
+
+"NSLocationWhenInUseUsageDescription" = "Hackathon needs your location";
+
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Hackathon needs your location";

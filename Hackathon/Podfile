@@ -8,7 +8,7 @@ target 'Hackathon' do
   
   ## UI
   pod 'Reusable', '~>4.0.0'
-  pod 'Permission', '~>2.0.4'
+  pod 'Permission/Location'
   
   ## Utils
   pod 'Marshal'
