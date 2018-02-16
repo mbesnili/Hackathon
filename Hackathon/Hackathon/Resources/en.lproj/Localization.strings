@@ -11,3 +11,5 @@
 "login.passwordPlaceholderText" = "Password";
 
 "login.loginButtonTitle" = "Login";
+
+"login.title" = "Login";

@@ -17,6 +17,7 @@ class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = R.string.localization.loginTitle()
         usernameTextField.placeholder = R.string.localization.loginUsernamePlaceholderText()
         passwordTextField.placeholder = R.string.localization.loginPasswordPlaceholderText()
         loginButton.setTitle(R.string.localization.loginLoginButtonTitle(), for: [])
