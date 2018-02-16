@@ -105,6 +105,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7736AE7620376F8600BB6780 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7775D31F2036E015000935CA /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7736AE7720376F9500BB6780 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7775D3212036E015000935CA /* Main.storyboard */,
+				7775D3242036E015000935CA /* Assets.xcassets */,
+				7775D3262036E015000935CA /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7775D3112036E015000935CA = {
 			isa = PBXGroup;
 			children = (
@@ -130,12 +148,10 @@
 		7775D31C2036E015000935CA /* Hackathon */ = {
 			isa = PBXGroup;
 			children = (
+				7736AE7720376F9500BB6780 /* Resources */,
+				7736AE7620376F8600BB6780 /* ViewControllers */,
 				7736AE6B203768A300BB6780 /* Model */,
 				7775D31D2036E015000935CA /* AppDelegate.swift */,
-				7775D31F2036E015000935CA /* ViewController.swift */,
-				7775D3212036E015000935CA /* Main.storyboard */,
-				7775D3242036E015000935CA /* Assets.xcassets */,
-				7775D3262036E015000935CA /* LaunchScreen.storyboard */,
 				7775D3292036E015000935CA /* Info.plist */,
 			);
 			path = Hackathon;
