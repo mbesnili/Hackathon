@@ -14,10 +14,16 @@ struct Location {
     let longitude: Double
 }
 
-extension Location: Unmarshaling {
+extension Location: Unmarshaling, Marshaling {
+    typealias MarshalType = [String: Any]
+
     init(object: MarshaledObject) throws {
         latitude = try object.value(for: "latitude")
         longitude = try object.value(for: "longitude")
+    }
+
+    func marshaled() -> Location.MarshalType {
+        return ["lat": latitude, "lon": longitude]
     }
 }
 

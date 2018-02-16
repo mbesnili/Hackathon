@@ -15,6 +15,11 @@
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
 		7736AE7A20376FE800BB6780 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7736AE7C20376FE800BB6780 /* Localization.strings */; };
 		7736AE80203771F400BB6780 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7F203771F400BB6780 /* R.generated.swift */; };
+		7736AE84203774C400BB6780 /* LoginResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 7736AE83203774C400BB6780 /* LoginResponse.json */; };
+		7736AE862037755800BB6780 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE852037755800BB6780 /* LoginResponse.swift */; };
+		7736AE882037767600BB6780 /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE872037767600BB6780 /* CheckResponse.swift */; };
+		7736AE8B2037778A00BB6780 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE8A2037778A00BB6780 /* APIConfiguration.swift */; };
+		7736AE8D20377A5300BB6780 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE8C20377A5300BB6780 /* UserRouter.swift */; };
 		7775D31E2036E015000935CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31D2036E015000935CA /* AppDelegate.swift */; };
 		7775D3202036E015000935CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31F2036E015000935CA /* BaseViewController.swift */; };
 		7775D3232036E015000935CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7775D3212036E015000935CA /* Main.storyboard */; };
@@ -52,6 +57,11 @@
 		7736AE7B20376FE800BB6780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		7736AE7D20376FFC00BB6780 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localization.strings; sourceTree = "<group>"; };
 		7736AE7F203771F400BB6780 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		7736AE83203774C400BB6780 /* LoginResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginResponse.json; sourceTree = "<group>"; };
+		7736AE852037755800BB6780 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		7736AE872037767600BB6780 /* CheckResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckResponse.swift; sourceTree = "<group>"; };
+		7736AE8A2037778A00BB6780 /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		7736AE8C20377A5300BB6780 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		7775D31A2036E015000935CA /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7775D31D2036E015000935CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7775D31F2036E015000935CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +116,8 @@
 				7736AE6C203768AA00BB6780 /* Status.swift */,
 				7736AE6E20376A8A00BB6780 /* Location.swift */,
 				7736AE7020376B6000BB6780 /* Package.swift */,
+				7736AE852037755800BB6780 /* LoginResponse.swift */,
+				7736AE872037767600BB6780 /* CheckResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +144,7 @@
 		7736AE812037741400BB6780 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				7736AE83203774C400BB6780 /* LoginResponse.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -143,6 +156,15 @@
 				7775D3262036E015000935CA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		7736AE892037776E00BB6780 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7736AE8A2037778A00BB6780 /* APIConfiguration.swift */,
+				7736AE8C20377A5300BB6780 /* UserRouter.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		7775D3112036E015000935CA = {
@@ -174,6 +196,7 @@
 				7736AE7720376F9500BB6780 /* Resources */,
 				7736AE7620376F8600BB6780 /* ViewControllers */,
 				7736AE6B203768A300BB6780 /* Model */,
+				7736AE892037776E00BB6780 /* Network */,
 				7775D31D2036E015000935CA /* AppDelegate.swift */,
 				7775D3292036E015000935CA /* Info.plist */,
 			);
@@ -342,6 +365,7 @@
 			files = (
 				7775D3282036E015000935CA /* LaunchScreen.storyboard in Resources */,
 				7736AE7A20376FE800BB6780 /* Localization.strings in Resources */,
+				7736AE84203774C400BB6780 /* LoginResponse.json in Resources */,
 				7775D3252036E015000935CA /* Assets.xcassets in Resources */,
 				7775D3232036E015000935CA /* Main.storyboard in Resources */,
 			);
@@ -553,9 +577,13 @@
 				7775D3202036E015000935CA /* BaseViewController.swift in Sources */,
 				7736AE7120376B6000BB6780 /* Package.swift in Sources */,
 				7775D31E2036E015000935CA /* AppDelegate.swift in Sources */,
+				7736AE882037767600BB6780 /* CheckResponse.swift in Sources */,
+				7736AE8B2037778A00BB6780 /* APIConfiguration.swift in Sources */,
 				7736AE6F20376A8A00BB6780 /* Location.swift in Sources */,
 				7736AE6D203768AA00BB6780 /* Status.swift in Sources */,
 				7736AE80203771F400BB6780 /* R.generated.swift in Sources */,
+				7736AE862037755800BB6780 /* LoginResponse.swift in Sources */,
+				7736AE8D20377A5300BB6780 /* UserRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
