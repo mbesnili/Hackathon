@@ -51,3 +51,7 @@
 "error.noLocationFound" = "Lokasyonunu bulamadık, lütfen daha sonra tekrar dene!";
 
 "error.unknownError" = "Bilinmeyen bir hata oluştu";
+
+"transportations.title" = "Transportation";
+
+"transportations.unFinishedTransportationTitle" = "Unfinished transportation";

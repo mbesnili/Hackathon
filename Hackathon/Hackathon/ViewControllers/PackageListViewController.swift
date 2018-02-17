@@ -26,8 +26,6 @@ class PackageListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: R.string.localization.userLogoutTitle(), style: .done, target: self, action: #selector(logoutButtonTapped))
-
         title = R.string.localization.packagesTitle()
 
         applyButton.setTitle(R.string.localization.packagesDeliverPackagesButtonTitle(), for: [])
@@ -87,13 +85,6 @@ class PackageListViewController: BaseViewController {
                 self?.showError(error: error)
             }
         }
-    }
-
-    @objc func logoutButtonTapped() {
-        User.current = nil
-        AppDelegate.shared?.loggedOut()
-        navigationController?.viewControllers.removeAll()
-        navigationController?.removeFromParentViewController()
     }
 
     @IBAction func fetchRoutesTapped(_: Any) {

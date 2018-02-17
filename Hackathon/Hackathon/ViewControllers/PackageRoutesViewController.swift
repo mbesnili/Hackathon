@@ -15,28 +15,33 @@ class PackageRoutesViewController: BaseViewController {
     @IBOutlet var timelineTableView: UITableView!
     var getTransportationPackages: TransportationPackagesResponse?
     var animatingIndexPaths = [IndexPath]()
-    var currentLocation: CLLocation!
+    var currentLocation: CLLocation?
 
     override func viewDidLoad() {
         title = R.string.localization.routesTitle()
 
         mapView.delegate = self
 
-        startAnimating()
-        APIManager.getTransportationPackages(latitude: currentLocation.latitude, longitude: currentLocation.longitude) { [weak self] rawTransportationPackages in
-            self?.stopAnimating()
-            switch rawTransportationPackages {
-            case let .success(transportationPackages):
-                if transportationPackages.packages.count == 0 {
-                    self?.showError(error: BusinessError.noRoutesFound)
-                } else {
-                    self?.getTransportationPackages = transportationPackages
-                    self?.group(packages: transportationPackages.packages, with: transportationPackages.gatheringPoint)
-                    self?.timelineTableView.reloadData()
+        if getTransportationPackages == nil {
+            startAnimating()
+            APIManager.getTransportationPackages(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude) { [weak self] rawTransportationPackages in
+                self?.stopAnimating()
+                switch rawTransportationPackages {
+                case let .success(transportationPackages):
+                    if transportationPackages.packages.count == 0 {
+                        self?.showError(error: BusinessError.noRoutesFound)
+                    } else {
+                        self?.getTransportationPackages = transportationPackages
+                        self?.group(packages: transportationPackages.packages, with: transportationPackages.gatheringPoint)
+                        self?.timelineTableView.reloadData()
+                    }
+                case let .failure(error):
+                    self?.showError(error: error)
                 }
-            case let .failure(error):
-                self?.showError(error: error)
             }
+        } else {
+            group(packages: getTransportationPackages!.packages, with: getTransportationPackages!.gatheringPoint)
+            timelineTableView.reloadData()
         }
         timelineTableView.tableFooterView = UIView(frame: .zero)
         timelineTableView.register(cellType: TimelineTableViewCell.self)
@@ -47,10 +52,12 @@ class PackageRoutesViewController: BaseViewController {
 
         var annotations = [MKPointAnnotation]()
 
-        let userLocationAnnotation = MKPointAnnotation()
-        userLocationAnnotation.coordinate = currentLocation.coordinate
-        userLocationAnnotation.title = "User's location"
-        annotations.append(userLocationAnnotation)
+        if let currentLocation = currentLocation {
+            let userLocationAnnotation = MKPointAnnotation()
+            userLocationAnnotation.coordinate = currentLocation.coordinate
+            userLocationAnnotation.title = "User's location"
+            annotations.append(userLocationAnnotation)
+        }
 
         let packageAnnotations = packages.map { (package) -> MKPointAnnotation in
             let annotation = MKPointAnnotation()
@@ -63,8 +70,8 @@ class PackageRoutesViewController: BaseViewController {
         annotations.append(contentsOf: packageAnnotations)
 
         let endingPointAnnotation = MKPointAnnotation()
-        userLocationAnnotation.coordinate = CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude)
-        userLocationAnnotation.title = R.string.localization.routesGatheringPointTitle()
+        endingPointAnnotation.coordinate = CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude)
+        endingPointAnnotation.title = R.string.localization.routesGatheringPointTitle()
         annotations.append(endingPointAnnotation)
 
         draw(annotations: annotations)
@@ -246,7 +253,7 @@ extension PackageRoutesViewController: TimelineTableViewCellDelegate {
             cell.actionButton.isHidden = true
             cell.activityIndicatorView.startAnimating()
             if indexPath.section == getTransportationPackages!.packages.count {
-                //TODO: Finish transaction
+                // TODO: Finish transaction
             } else {
                 let package = getTransportationPackages!.packages[indexPath.section]
                 APIManager.pickUpPackage(for: package.id, completion: { [weak self] rawResponse in

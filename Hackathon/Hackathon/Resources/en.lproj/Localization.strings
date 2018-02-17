@@ -51,3 +51,7 @@
 "error.noLocationFound" = "We couldn't get your location, please try again!";
 
 "error.unknownError" = "Unknown error occurred";
+
+"transportations.title" = "Transportation";
+
+"transportations.unFinishedTransportationTitle" = "Unfinished transportation";

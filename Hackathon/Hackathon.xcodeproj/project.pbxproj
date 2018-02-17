@@ -17,6 +17,7 @@
 		771464AA203896ED00A61D51 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464A9203896ED00A61D51 /* TimelineTableViewCell.swift */; };
 		771464AC2038971F00A61D51 /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771464AB2038971F00A61D51 /* TimelineTableViewCell.xib */; };
 		771464AE2038B04700A61D51 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464AD2038B04700A61D51 /* ArrayExtensions.swift */; };
+		771464B02038D51600A61D51 /* TransportationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464AF2038D51600A61D51 /* TransportationsViewController.swift */; };
 		7736AE6D203768AA00BB6780 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6C203768AA00BB6780 /* Status.swift */; };
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
@@ -87,6 +88,7 @@
 		771464A9203896ED00A61D51 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		771464AB2038971F00A61D51 /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineTableViewCell.xib; sourceTree = "<group>"; };
 		771464AD2038B04700A61D51 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		771464AF2038D51600A61D51 /* TransportationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationsViewController.swift; sourceTree = "<group>"; };
 		7736AE6C203768AA00BB6780 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7736AE6E20376A8A00BB6780 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				7736AE8E20377D9800BB6780 /* LoginViewController.swift */,
 				7736AE97203792E100BB6780 /* PackageListViewController.swift */,
 				77C121372037C6E800223BCE /* PackageRoutesViewController.swift */,
+				771464AF2038D51600A61D51 /* TransportationsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				7736AE7120376B6000BB6780 /* Package.swift in Sources */,
 				7736AEB22037B73000BB6780 /* PackageTableViewCell.swift in Sources */,
 				771464A020385D3F00A61D51 /* BusinessError.swift in Sources */,
+				771464B02038D51600A61D51 /* TransportationsViewController.swift in Sources */,
 				771464A4203886A700A61D51 /* JLTGradientPathRenderer.swift in Sources */,
 				7736AEA12037A9E900BB6780 /* Capacity.swift in Sources */,
 				7736AEA72037ADC900BB6780 /* LocationProtocol.swift in Sources */,
