@@ -45,6 +45,17 @@ extension Package: CustomStringConvertible {
     }
 }
 
+extension Package: Equatable, Hashable {
+
+    static func == (lhs: Package, rhs: Package) -> Bool {
+        return lhs.address == rhs.address && lhs.id == rhs.id && lhs.coordinates == rhs.coordinates && lhs.packageDescription == rhs.packageDescription && lhs.state == rhs.state && lhs.address == rhs.address
+    }
+
+    var hashValue: Int {
+        return id.hashValue ^ capacity.hashValue ^ coordinates.hashValue ^ packageDescription.hashValue ^ state.hashValue ^ address.hashValue
+    }
+}
+
 extension Package.State: CustomStringConvertible {
     var displayColor: UIColor {
         switch self {

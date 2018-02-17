@@ -18,6 +18,9 @@ target 'Hackathon' do
   ## Resources
   pod 'R.swift'
   pod 'UIFontComplete'
+  
+  pod 'DeepDiff'
+  
   target 'HackathonTests' do
     inherit! :search_paths
   end

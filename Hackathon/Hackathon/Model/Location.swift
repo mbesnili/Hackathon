@@ -34,4 +34,14 @@ extension Location {
     }
 }
 
+extension Location: Hashable, Equatable {
+    static func == (lhs: Location, rhs: Location) -> Bool {
+        return lhs.longitude == rhs.longitude && lhs.latitude == rhs.longitude
+    }
+
+    var hashValue: Int {
+        return longitude.hashValue ^ latitude.hashValue
+    }
+}
+
 typealias CheckPoint = Location

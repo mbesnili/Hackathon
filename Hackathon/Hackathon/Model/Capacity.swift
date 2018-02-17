@@ -26,3 +26,14 @@ extension Capacity: Unmarshaling, Marshaling {
         return ["pieces": numberOfPieces, "weight": weight]
     }
 }
+
+extension Capacity: Hashable, Equatable {
+
+    static func == (lhs: Capacity, rhs: Capacity) -> Bool {
+        return lhs.numberOfPieces == rhs.numberOfPieces && lhs.weight == rhs.weight
+    }
+
+    var hashValue: Int {
+        return numberOfPieces.hashValue ^ weight.hashValue
+    }
+}

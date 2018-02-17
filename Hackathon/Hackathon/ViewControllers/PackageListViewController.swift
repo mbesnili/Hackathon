@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import DeepDiff
 import Permission
 import UIKit
 
@@ -18,12 +19,9 @@ class PackageListViewController: BaseViewController {
     var location: CLLocation?
     let locationManager = CLLocationManager()
     var locationDisabled = true
+    let refreshControl = UIRefreshControl()
 
-    var packages = [Package]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var packages = [Package]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +33,8 @@ class PackageListViewController: BaseViewController {
         applyButton.setTitle(R.string.localization.packagesDeliverPackagesButtonTitle(), for: [])
 
         tableView.register(cellType: PackageTableViewCell.self)
+        refreshControl.addTarget(self, action: #selector(refreshControlValueChanged), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -60,8 +60,28 @@ class PackageListViewController: BaseViewController {
             case let .success(listPackagesResponse):
                 if listPackagesResponse.status.success {
                     self?.packages = listPackagesResponse.packages
+                    self?.tableView.reloadData()
                 } else {
                     self?.showError(error: listPackagesResponse.status.error)
+                }
+            case let .failure(error):
+                self?.showError(error: error)
+            }
+        }
+    }
+
+    @objc func refreshControlValueChanged() {
+        APIManager.listPackages { [weak self] rawPackages in
+            self?.refreshControl.endRefreshing()
+            switch rawPackages {
+            case let .success(response):
+                guard let strongSelf = self else {
+                    return
+                }
+                let oldPackages = strongSelf.packages
+                strongSelf.packages = response.packages
+                let changes = diff(old: strongSelf.packages, new: oldPackages)
+                strongSelf.tableView.reload(changes: changes) { _ in
                 }
             case let .failure(error):
                 self?.showError(error: error)
