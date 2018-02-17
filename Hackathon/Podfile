@@ -14,6 +14,9 @@ target 'Hackathon' do
   pod 'Marshal'
   pod 'SwiftFormat/CLI'
   
+  ## Maps
+  pod 'GoogleMaps'
+  
   ## Resources
   pod 'R.swift'
   pod 'UIFontComplete'
