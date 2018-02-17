@@ -13,7 +13,7 @@ class PackageRoutesViewController: BaseViewController {
 
     @IBOutlet var pickUpButton: UIButton!
     @IBOutlet var finishTransportationButton: UIButton!
-
+    @IBOutlet var addressLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
 
     var getTransportationPackages: TransportationPackagesResponse?
@@ -151,5 +151,19 @@ extension PackageRoutesViewController: MKMapViewDelegate {
     func mapView(_: MKMapView, didDeselect _: MKAnnotationView) {
         pickUpButton.isHidden = true
         finishTransportationButton.isHidden = true
+        addressLabel.text = nil
+    }
+
+    func mapView(_: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped _: UIControl) {
+        guard let annotation = view.annotation as? MKPointAnnotation else {
+            return
+        }
+
+        let package = getTransportationPackages?.packages.filter({ (package) -> Bool in
+            package.coordinates.latitude == annotation.coordinate.latitude && package.coordinates.longitude == annotation.coordinate.longitude
+        }).first
+        if package != nil {
+            addressLabel.text = package!.address
+        }
     }
 }

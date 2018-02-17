@@ -23,6 +23,7 @@ struct Package {
     let coordinates: Location
     let packageDescription: String
     let state: State
+    let address: String
 }
 
 extension Package: Unmarshaling {
@@ -32,6 +33,7 @@ extension Package: Unmarshaling {
         coordinates = try object.value(for: "coordinates")
         packageDescription = (try? object.value(for: "description")) ?? "Osman"
         state = try object.value(for: "state")
+        address = (try? object.value(for: "address")) ?? ""
     }
 }
 

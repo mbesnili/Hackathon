@@ -47,7 +47,7 @@ enum PackageRouter: APIConfiguration {
         case .list:
             return Alamofire.HTTPMethod.get
         case .routes:
-            return Alamofire.HTTPMethod.get
+            return Alamofire.HTTPMethod.post
         case .packageReceive:
             return Alamofire.HTTPMethod.post
         case .finishTransportation:
