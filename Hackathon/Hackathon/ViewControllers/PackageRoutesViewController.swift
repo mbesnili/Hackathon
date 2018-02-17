@@ -267,7 +267,6 @@ extension PackageRoutesViewController: TimelineTableViewCellDelegate {
                     case let .failure(error):
                         self?.showError(error: error)
                     case .success:
-                        NotificationCenter.default.post(name: Constants.shouldRefreshPackageListNotification, object: nil)
                         self?.showSuccessfulDelivery()
                     }
                 })
@@ -283,6 +282,7 @@ extension PackageRoutesViewController: TimelineTableViewCellDelegate {
                             self?.getTransportationPackages?.packages[indexPath.section] = response.package
                             self?.reloadAnnotation(for: response.package)
                             self?.timelineTableView.reloadData()
+                            NotificationCenter.default.post(name: Constants.shouldUpdatePackageNotification, object: nil, userInfo: ["package": package])
                         } else {
                             self?.showError(error: BusinessError.unknown)
                         }

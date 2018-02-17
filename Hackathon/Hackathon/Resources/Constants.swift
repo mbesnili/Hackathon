@@ -9,6 +9,5 @@
 import Foundation
 
 enum Constants {
-    static let shouldRefreshPackageListNotification = Notification.Name("shouldRefreshPackageListNotification")
     static let shouldUpdatePackageNotification = Notification.Name("shouldUpdatePackageNotification")
 }

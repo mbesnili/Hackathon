@@ -53,18 +53,23 @@ class PackageListViewController: BaseViewController {
             }
         }
 
-        APIManager.listPackages { [weak self] rawPackages in
-            switch rawPackages {
-            case let .success(listPackagesResponse):
-                if listPackagesResponse.status.success {
-                    self?.packages = listPackagesResponse.packages
-                    self?.tableView.reloadData()
-                } else {
-                    self?.showError(error: listPackagesResponse.status.error)
-                }
-            case let .failure(error):
-                self?.showError(error: error)
-            }
+        refreshControlValueChanged()
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePackage), name: Constants.shouldUpdatePackageNotification, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func updatePackage(_ notification: Notification) {
+        guard let package = notification.userInfo?["package"] as? Package else {
+            return
+        }
+        let oldPackageIndex = packages.index { (p) -> Bool in
+            return p.id == package.id
+        }
+        if oldPackageIndex != nil {
+            packages[oldPackageIndex!] = package
         }
     }
 
@@ -76,10 +81,15 @@ class PackageListViewController: BaseViewController {
                 guard let strongSelf = self else {
                     return
                 }
-                let oldPackages = strongSelf.packages
-                strongSelf.packages = response.packages
-                let changes = diff(old: strongSelf.packages, new: oldPackages)
-                strongSelf.tableView.reload(changes: changes) { _ in
+                if strongSelf.packages.count == 0 {
+                    strongSelf.packages = response.packages
+                    strongSelf.tableView.reloadData()
+                } else {
+                    let oldPackages = strongSelf.packages
+                    strongSelf.packages = response.packages
+                    let changes = diff(old: strongSelf.packages, new: oldPackages)
+                    strongSelf.tableView.reload(changes: changes) { _ in
+                    }
                 }
             case let .failure(error):
                 self?.showError(error: error)
