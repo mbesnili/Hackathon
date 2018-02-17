@@ -155,4 +155,22 @@ class APIManager {
             }
         }
     }
+
+    static func finishTransportation(completion: @escaping ((Result<FinishTransportationResponse>) -> Void)) {
+        Alamofire.request(PackageRouter.finishTransportation).responseJSON { rawResponse in
+            switch rawResponse.result {
+            case let .failure(error):
+                completion(.failure(error))
+            case let .success(response):
+                guard let responseDictionary = response as? [String: Any] else {
+                    return
+                }
+                if let finishTransportationResponse = try? FinishTransportationResponse(object: responseDictionary) {
+                    completion(.success(finishTransportationResponse))
+                } else {
+                    completion(.failure(APIManagerError.parsingError))
+                }
+            }
+        }
+    }
 }

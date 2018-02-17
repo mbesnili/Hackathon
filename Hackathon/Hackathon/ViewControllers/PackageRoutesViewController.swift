@@ -128,6 +128,15 @@ class PackageRoutesViewController: BaseViewController {
             completion?()
         }
     }
+
+    func showSuccessfulDelivery() {
+        let alertController = UIAlertController(title: "", message: R.string.localization.transportationsSuccessfulDeliveryMessage(), preferredStyle: .alert)
+        let okAction = UIAlertAction(title: R.string.localization.commonOkTitle(), style: .default) { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension PackageRoutesViewController: MKMapViewDelegate {
@@ -253,7 +262,15 @@ extension PackageRoutesViewController: TimelineTableViewCellDelegate {
             cell.actionButton.isHidden = true
             cell.activityIndicatorView.startAnimating()
             if indexPath.section == getTransportationPackages!.packages.count {
-                // TODO: Finish transaction
+                APIManager.finishTransportation(completion: { [weak self] rawResponse in
+                    switch rawResponse {
+                    case let .failure(error):
+                        self?.showError(error: error)
+                    case .success:
+                        NotificationCenter.default.post(name: Constants.shouldRefreshPackageListNotification, object: nil)
+                        self?.showSuccessfulDelivery()
+                    }
+                })
             } else {
                 let package = getTransportationPackages!.packages[indexPath.section]
                 APIManager.pickUpPackage(for: package.id, completion: { [weak self] rawResponse in

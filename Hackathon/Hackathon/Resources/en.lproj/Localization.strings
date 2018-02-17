@@ -55,3 +55,5 @@
 "transportations.title" = "Transportation";
 
 "transportations.unFinishedTransportationTitle" = "Unfinished transportation";
+
+"transportations.successfulDeliveryMessage" = "Your delivery is successful";

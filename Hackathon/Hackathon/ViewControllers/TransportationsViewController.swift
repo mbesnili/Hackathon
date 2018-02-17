@@ -51,7 +51,7 @@ class TransportationsViewController: BaseViewController {
                 self?.transactionPackagesResponse = response
                 self?.unfinishedTransactionFound = true
             case .failure:
-                break
+                self?.unfinishedTransactionFound = false
             }
         }
     }
