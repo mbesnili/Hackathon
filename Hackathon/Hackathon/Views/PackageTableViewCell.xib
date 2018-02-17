@@ -50,11 +50,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="capacityLabel" destination="6Zs-pU-obq" id="FDZ-R4-0dX"/>
-                <outlet property="packageDescriptionLabel" destination="wLt-b0-Z54" id="wbU-ty-vxc"/>
+                <outlet property="packageDescriptionLabel" destination="6Zs-pU-obq" id="raL-gU-GPP"/>
+                <outlet property="packageIdTextLabel" destination="wLt-b0-Z54" id="h85-8W-nRK"/>
                 <outlet property="statusLabel" destination="0Ag-zG-7Qw" id="O6d-NO-ijb"/>
             </connections>
-            <point key="canvasLocation" x="-219.5" y="-16.5"/>
+            <point key="canvasLocation" x="-169" y="-96"/>
         </tableViewCell>
     </objects>
 </document>

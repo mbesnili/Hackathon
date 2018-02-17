@@ -9,8 +9,8 @@
       "_id": "5a877200631e256b33570921",
       "state": "available",
       "coordinates": {
-        "latitude": 41.506435128554,
-        "longitude": 28.622719638026
+        "latitude": 41.077617,
+        "longitude": 29.013518
       },
       "capacity": {
         "weight": 8.6615513539244,
@@ -21,8 +21,8 @@
       "_id": "5a877200631e256b33570922",
       "state": "available",
       "coordinates": {
-        "latitude": 41.564030933165,
-        "longitude": 28.559280315846
+        "latitude": 41.080140,
+        "longitude": 29.008958
       },
       "capacity": {
         "weight": 10.287344029891,
@@ -33,8 +33,8 @@
       "_id": "5a877200631e256b33570923",
       "state": "available",
       "coordinates": {
-        "latitude": 40.269168557712,
-        "longitude": 28.629036608755
+        "latitude": 41.076946,
+        "longitude": 29.003433
       },
       "capacity": {
         "weight": 4.7420973466935,
@@ -45,8 +45,8 @@
       "_id": "5a877200631e256b33570924",
       "state": "available",
       "coordinates": {
-        "latitude": 41.595637960764,
-        "longitude": 27.030250877328
+        "latitude": 41.076032,
+        "longitude": 29.009141
       },
       "capacity": {
         "weight": 10.682385299601,
@@ -69,8 +69,8 @@
       "_id": "5a877200631e256b33570926",
       "state": "available",
       "coordinates": {
-        "latitude": 41.821829112913,
-        "longitude": 27.890431908295
+        "latitude": 41.072605,
+        "longitude": 29.016197
       },
       "capacity": {
         "weight": 1.4507438022454,
@@ -81,8 +81,8 @@
       "_id": "5a877200631e256b33570927",
       "state": "available",
       "coordinates": {
-        "latitude": 40.400847803256,
-        "longitude": 27.810244839089
+        "latitude": 41.070000,
+        "longitude": 29.014148
       },
       "capacity": {
         "weight": 1.6710473173025,
@@ -93,8 +93,8 @@
       "_id": "5a877200631e256b33570928",
       "state": "available",
       "coordinates": {
-        "latitude": 40.278928643965,
-        "longitude": 27.935053820963
+        "latitude": 41.066766,
+        "longitude": 29.013406
       },
       "capacity": {
         "weight": 9.8417472586833,
@@ -105,8 +105,8 @@
       "_id": "5a877200631e256b33570929",
       "state": "available",
       "coordinates": {
-        "latitude": 40.1885653119,
-        "longitude": 28.788099591687
+        "latitude": 41.065609,
+        "longitude": 29.008567
       },
       "capacity": {
         "weight": 6.4697120460655,
@@ -117,8 +117,8 @@
       "_id": "5a877200631e256b3357092a",
       "state": "available",
       "coordinates": {
-        "latitude": 40.781704814362,
-        "longitude": 27.299354536765
+        "latitude": 41.063668,
+        "longitude": 29.006228
       },
       "capacity": {
         "weight": 14.912327349887,
@@ -129,8 +129,8 @@
       "_id": "5a877200631e256b3357092b",
       "state": "available",
       "coordinates": {
-        "latitude": 40.68215042625,
-        "longitude": 27.308948969645
+        "latitude": 41.061508,
+        "longitude": 29.005112
       },
       "capacity": {
         "weight": 13.125068950064,
@@ -141,8 +141,8 @@
       "_id": "5a877200631e256b3357092c",
       "state": "available",
       "coordinates": {
-        "latitude": 40.485226376342,
-        "longitude": 27.736310930806
+        "latitude": 41.061071,
+        "longitude": 29.004458
       },
       "capacity": {
         "weight": 5.6792797951118,
@@ -153,8 +153,8 @@
       "_id": "5a877200631e256b3357092d",
       "state": "available",
       "coordinates": {
-        "latitude": 41.705939858984,
-        "longitude": 28.465153500702
+        "latitude": 41.057918,
+        "longitude": 29.007195
       },
       "capacity": {
         "weight": 14.77397358329,
@@ -165,8 +165,8 @@
       "_id": "5a877200631e256b3357092e",
       "state": "available",
       "coordinates": {
-        "latitude": 40.647808205304,
-        "longitude": 27.071481509483
+        "latitude": 41.056130,
+        "longitude": 29.005167
       },
       "capacity": {
         "weight": 6.25478383367,
@@ -177,8 +177,8 @@
       "_id": "5a877200631e256b3357092f",
       "state": "available",
       "coordinates": {
-        "latitude": 40.467989452913,
-        "longitude": 28.916044287795
+        "latitude": 41.055272,
+        "longitude": 29.002270
       },
       "capacity": {
         "weight": 7.9948452011467,
@@ -189,8 +189,8 @@
       "_id": "5a877252631e256b33570930",
       "state": "available",
       "coordinates": {
-        "latitude": 40.132876324609,
-        "longitude": 27.473514731478
+        "latitude": 41.052667,
+        "longitude": 29.000811
       },
       "capacity": {
         "weight": 13.065587904722,
@@ -201,8 +201,8 @@
       "_id": "5a877252631e256b33570931",
       "state": "available",
       "coordinates": {
-        "latitude": 40.681973192784,
-        "longitude": 27.634701319655
+        "latitude": 41.054261,
+        "longitude": 29.007484
       },
       "capacity": {
         "weight": 7.4219185046347,
@@ -213,8 +213,8 @@
       "_id": "5a877252631e256b33570932",
       "state": "available",
       "coordinates": {
-        "latitude": 40.297326735538,
-        "longitude": 27.783866660103
+        "latitude": 41.057157,
+        "longitude": 29.006722
       },
       "capacity": {
         "weight": 3.2503183142386,
@@ -225,8 +225,8 @@
       "_id": "5a877252631e256b33570933",
       "state": "available",
       "coordinates": {
-        "latitude": 40.183948999485,
-        "longitude": 27.153060721652
+        "latitude": 41.056348,
+        "longitude": 29.009941
       },
       "capacity": {
         "weight": 6.7772090465263,
@@ -237,8 +237,8 @@
       "_id": "5a877252631e256b33570934",
       "state": "available",
       "coordinates": {
-        "latitude": 41.067654394771,
-        "longitude": 28.147793559249
+        "latitude": 41.057634,
+        "longitude": 29.012891
       },
       "capacity": {
         "weight": 12.00633875368,
@@ -249,8 +249,8 @@
       "_id": "5a877252631e256b33570935",
       "state": "available",
       "coordinates": {
-        "latitude": 41.361911777483,
-        "longitude": 27.23143814414
+        "latitude": 41.053920,
+        "longitude": 29.014302
       },
       "capacity": {
         "weight": 9.6480852160166,
@@ -261,8 +261,8 @@
       "_id": "5a877252631e256b33570936",
       "state": "available",
       "coordinates": {
-        "latitude": 41.666842484716,
-        "longitude": 27.911704523155
+        "latitude": 41.045380,
+        "longitude": 29.009850
       },
       "capacity": {
         "weight": 2.5941627980997,
@@ -273,8 +273,8 @@
       "_id": "5a877252631e256b33570937",
       "state": "available",
       "coordinates": {
-        "latitude": 41.629374355753,
-        "longitude": 28.516265033448
+        "latitude": 41.043082,
+        "longitude": 29.011341
       },
       "capacity": {
         "weight": 4.3460056321388,
@@ -285,8 +285,8 @@
       "_id": "5a877252631e256b33570938",
       "state": "available",
       "coordinates": {
-        "latitude": 40.362990667333,
-        "longitude": 28.434665929502
+        "latitude": 41.040938,
+        "longitude": 29.001449
       },
       "capacity": {
         "weight": 8.7870957928823,
@@ -297,8 +297,8 @@
       "_id": "5a877252631e256b33570939",
       "state": "available",
       "coordinates": {
-        "latitude": 40.633828586116,
-        "longitude": 27.761579681819
+        "latitude": 41.049514,
+        "longitude": 29.025098
       },
       "capacity": {
         "weight": 11.980241772197,
@@ -309,8 +309,8 @@
       "_id": "5a877252631e256b3357093a",
       "state": "available",
       "coordinates": {
-        "latitude": 40.609143762796,
-        "longitude": 27.030378522028
+        "latitude": 41.05190,
+        "longitude":  29.026171
       },
       "capacity": {
         "weight": 4.3095574752181,
@@ -321,8 +321,8 @@
       "_id": "5a877252631e256b3357093b",
       "state": "available",
       "coordinates": {
-        "latitude": 40.583723520753,
-        "longitude": 28.372976531039
+        "latitude": 41.053090,
+        "longitude": 29.023414
       },
       "capacity": {
         "weight": 9.7158908677965,
@@ -333,8 +333,8 @@
       "_id": "5a877252631e256b3357093c",
       "state": "available",
       "coordinates": {
-        "latitude": 40.157344706817,
-        "longitude": 27.489678007056
+        "latitude": 41.069153,
+        "longitude": 29.014527
       },
       "capacity": {
         "weight": 13.82112417341,
@@ -345,8 +345,8 @@
       "_id": "5a877252631e256b3357093d",
       "state": "available",
       "coordinates": {
-        "latitude": 41.843222680651,
-        "longitude": 28.711939334244
+        "latitude": 41.067019,
+        "longitude": 29.018699
       },
       "capacity": {
         "weight": 5.4908327458713,
@@ -357,8 +357,8 @@
       "_id": "5a877252631e256b3357093e",
       "state": "available",
       "coordinates": {
-        "latitude": 41.789891192422,
-        "longitude": 28.908203620039
+        "latitude": 41.075209,
+        "longitude": 29.018874
       },
       "capacity": {
         "weight": 7.0716303430705,

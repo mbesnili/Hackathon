@@ -17,3 +17,19 @@
 "error.title" = "Error";
 
 "common.okTitle" = "Ok";
+
+"packages.title" = "Package List";
+
+"packages.packageId" = "Package id: ";
+
+"packages.packageDescription" = "Description: ";
+
+"packages.packageStatus" = "Status: ";
+
+"packages.packageStateAvailable" = "AVAILABLE";
+
+"packages.packageStateBeingCarried" = "BEING CARRIED";
+
+"packages.packageStateClaimed" = "CLAIMED";
+
+"packages.packageStateDelivered" = "DELIVERED";

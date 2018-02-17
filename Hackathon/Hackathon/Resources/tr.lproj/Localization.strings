@@ -17,3 +17,19 @@
 "error.title" = "Hata";
 
 "common.okTitle" = "Tamam";
+
+"packages.title" = "Paket Listesi";
+
+"packages.packageId" = "Paket id: ";
+
+"packages.packageDescription" = "Açıklama: ";
+
+"packages.packageStatus" = "Durum: ";
+
+"packages.packageStateAvailable" = "UYGUN";
+
+"packages.packageStateBeingCarried" = "TAŞINIYOR";
+
+"packages.packageStateClaimed" = "TALEP EDİLDİ";
+
+"packages.packageStateDelivered" = "TESLIM EDİLDİ";

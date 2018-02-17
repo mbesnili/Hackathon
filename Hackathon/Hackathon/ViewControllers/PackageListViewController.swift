@@ -26,6 +26,7 @@ class PackageListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = R.string.localization.packagesTitle()
         tableView.register(cellType: PackageTableViewCell.self)
 
         locationManager.delegate = self
