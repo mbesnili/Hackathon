@@ -187,10 +187,10 @@ class PackageRoutesViewController: BaseViewController {
 extension PackageRoutesViewController: MKMapViewDelegate {
 
     func mapView(_: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.red
-        renderer.lineWidth = 4.0
-        return renderer
+        let gradientColors = [UIColor.green, UIColor.blue, UIColor.yellow, UIColor.red]
+        let polylineRenderer = JLTGradientPathRenderer(polyline: overlay as! MKPolyline, colors: gradientColors)
+        polylineRenderer.lineWidth = 7
+        return polylineRenderer
     }
 
     func mapView(_: MKMapView, didSelect view: MKAnnotationView) {
