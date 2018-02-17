@@ -9,36 +9,40 @@
 import Foundation
 import MapKit
 
-class PackageRoutesViewController: BaseViewController, MKMapViewDelegate {
+class PackageRoutesViewController: BaseViewController {
+
+    @IBOutlet var pickUpButton: UIButton!
+    @IBOutlet var finishTransportationButton: UIButton!
 
     @IBOutlet var mapView: MKMapView!
 
+    var getTransportationPackages: TransportationPackagesResponse?
+
     override func viewDidLoad() {
+        title = R.string.localization.routesTitle()
+        pickUpButton.setTitle(R.string.localization.routesPickUpButtonTitle(), for: [])
+        finishTransportationButton.setTitle(R.string.localization.routesFinishButtonTitle(), for: [])
 
         mapView.delegate = self
 
         APIManager.getTransportationPackages { [weak self] rawTransportationPackages in
             switch rawTransportationPackages {
             case let .success(transportationPackages):
+                self?.getTransportationPackages = transportationPackages
                 self?.group(packages: transportationPackages.packages, with: transportationPackages.gatheringPoint)
             case let .failure(error):
                 self?.showError(error: error)
             }
         }
-    }
-
-    func mapView(_: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.red
-        renderer.lineWidth = 4.0
-        return renderer
+        pickUpButton.isHidden = true
+        finishTransportationButton.isHidden = true
     }
 
     func group(packages: [Package], with endingPoint: Location) {
         if packages.count == 1 {
-            drawRoute(sourceCoordinate: CLLocationCoordinate2D(latitude: packages[0].coordinates.latitude, longitude: packages[0].coordinates.longitude), sourceTitle: packages[0].packageDescription, destinationCoordinate: CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude), destinationTitle: "Gathering point")
+            drawRoute(sourceCoordinate: CLLocationCoordinate2D(latitude: packages[0].coordinates.latitude, longitude: packages[0].coordinates.longitude), sourceTitle: packages[0].packageDescription, sourceSubtitle: packages[0].state.description, destinationCoordinate: CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude), destinationTitle: R.string.localization.routesGatheringPointTitle())
         } else {
-            drawRoute(sourceCoordinate: CLLocationCoordinate2D(latitude: packages[0].coordinates.latitude, longitude: packages[0].coordinates.longitude), sourceTitle: packages[0].packageDescription, destinationCoordinate: CLLocationCoordinate2D(latitude: packages[1].coordinates.latitude, longitude: packages[1].coordinates.longitude), destinationTitle: packages[1].packageDescription, completion: { [weak self] in
+            drawRoute(sourceCoordinate: CLLocationCoordinate2D(latitude: packages[0].coordinates.latitude, longitude: packages[0].coordinates.longitude), sourceTitle: packages[0].packageDescription, sourceSubtitle: packages[0].state.description, destinationCoordinate: CLLocationCoordinate2D(latitude: packages[1].coordinates.latitude, longitude: packages[1].coordinates.longitude), destinationTitle: packages[1].packageDescription, completion: { [weak self] in
                 var mutablePackages = packages
                 mutablePackages.removeFirst()
                 self?.group(packages: mutablePackages, with: endingPoint)
@@ -46,7 +50,7 @@ class PackageRoutesViewController: BaseViewController, MKMapViewDelegate {
         }
     }
 
-    func drawRoute(sourceCoordinate: CLLocationCoordinate2D, sourceTitle: String, destinationCoordinate: CLLocationCoordinate2D, destinationTitle: String, completion: (() -> Void)? = nil) {
+    func drawRoute(sourceCoordinate: CLLocationCoordinate2D, sourceTitle: String, sourceSubtitle: String, destinationCoordinate: CLLocationCoordinate2D, destinationTitle: String, completion: (() -> Void)? = nil) {
 
         let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinate, addressDictionary: nil)
         let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
@@ -56,6 +60,7 @@ class PackageRoutesViewController: BaseViewController, MKMapViewDelegate {
 
         let sourceAnnotation = MKPointAnnotation()
         sourceAnnotation.title = sourceTitle
+        sourceAnnotation.subtitle = sourceSubtitle
 
         if let location = sourcePlacemark.location {
             sourceAnnotation.coordinate = location.coordinate
@@ -95,5 +100,56 @@ class PackageRoutesViewController: BaseViewController, MKMapViewDelegate {
             self?.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
             completion?()
         }
+    }
+
+    @IBAction func pickUpButtonTapped() {
+    }
+
+    @IBAction func finishTransportationButtonTapped() {
+    }
+}
+
+extension PackageRoutesViewController: MKMapViewDelegate {
+
+    func mapView(_: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 4.0
+        return renderer
+    }
+
+    func mapView(_: MKMapView, didSelect view: MKAnnotationView) {
+        guard let response = getTransportationPackages else {
+            return
+        }
+
+        guard let coordinate = view.annotation?.coordinate else {
+            return
+        }
+
+        finishTransportationButton.isHidden = !(coordinate.latitude == response.gatheringPoint.latitude && coordinate.longitude == response.gatheringPoint.longitude)
+        pickUpButton.isHidden = (coordinate.latitude == response.gatheringPoint.latitude && coordinate.longitude == response.gatheringPoint.longitude)
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? MKPointAnnotation else { return nil }
+        let identifier = "MarkerIdentifier"
+        var view: MKMarkerAnnotationView
+
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
+
+    func mapView(_: MKMapView, didDeselect _: MKAnnotationView) {
+        pickUpButton.isHidden = true
+        finishTransportationButton.isHidden = true
     }
 }

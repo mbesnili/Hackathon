@@ -27,6 +27,9 @@ class PackageListViewController: BaseViewController {
         super.viewDidLoad()
 
         title = R.string.localization.packagesTitle()
+
+        applyButton.setTitle(R.string.localization.packagesDeliverPackagesButtonTitle(), for: [])
+
         tableView.register(cellType: PackageTableViewCell.self)
 
         locationManager.delegate = self

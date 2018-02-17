@@ -72,17 +72,44 @@
                                     <constraint firstAttribute="height" constant="300" id="Mrn-AP-rvF"/>
                                 </constraints>
                             </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="H7M-7y-XvU">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nT9-jA-3fq">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="pickUpButtonTapped" destination="7v3-Mu-XAj" eventType="touchUpInside" id="YOq-1T-8DL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dT7-to-766">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="finishTransportationButtonTapped" destination="7v3-Mu-XAj" eventType="touchUpInside" id="QAV-Sf-HKC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wl1-XW-sjp"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tHZ-70-E0p" firstAttribute="leading" secondItem="8bh-TP-edZ" secondAttribute="leading" id="Cgh-N3-jiF"/>
+                            <constraint firstItem="H7M-7y-XvU" firstAttribute="bottom" secondItem="8bh-TP-edZ" secondAttribute="bottom" id="MIB-RV-3p2"/>
                             <constraint firstItem="tHZ-70-E0p" firstAttribute="top" secondItem="8bh-TP-edZ" secondAttribute="top" id="O5N-jh-koc"/>
+                            <constraint firstItem="H7M-7y-XvU" firstAttribute="leading" secondItem="8bh-TP-edZ" secondAttribute="leading" id="cIn-ne-1rA"/>
+                            <constraint firstItem="8bh-TP-edZ" firstAttribute="trailing" secondItem="H7M-7y-XvU" secondAttribute="trailing" id="eqh-ME-Dnx"/>
                             <constraint firstItem="tHZ-70-E0p" firstAttribute="trailing" secondItem="8bh-TP-edZ" secondAttribute="trailing" id="snm-dO-Jjh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8bh-TP-edZ"/>
                     </view>
                     <connections>
+                        <outlet property="finishTransportationButton" destination="dT7-to-766" id="dY5-sP-sra"/>
                         <outlet property="mapView" destination="tHZ-70-E0p" id="g9W-AW-D9g"/>
+                        <outlet property="pickUpButton" destination="nT9-jA-3fq" id="4uV-0L-9WF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hr6-QV-K2S" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,3 +33,13 @@
 "packages.packageStateClaimed" = "TALEP EDİLDİ";
 
 "packages.packageStateDelivered" = "TESLIM EDİLDİ";
+
+"packages.deliverPackagesButtonTitle" = "Paketleri teslim et";
+
+"routes.title" = "Güzergah";
+
+"routes.pickUpButtonTitle" = "Paketi Topla";
+
+"routes.finishButtonTitle" = "Bitir";
+
+"routes.gatheringPointTitle" = "Toplanma noktası";

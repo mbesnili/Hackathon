@@ -33,3 +33,13 @@
 "packages.packageStateClaimed" = "CLAIMED";
 
 "packages.packageStateDelivered" = "DELIVERED";
+
+"packages.deliverPackagesButtonTitle" = "Deliver Packages";
+
+"routes.title" = "Routes";
+
+"routes.pickUpButtonTitle" = "Pick Up Delivery";
+
+"routes.finishButtonTitle" = "Finish Transportation";
+
+"routes.gatheringPointTitle" = "Gathering point";
