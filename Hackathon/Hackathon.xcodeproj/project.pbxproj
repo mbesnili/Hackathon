@@ -14,6 +14,9 @@
 		771464A020385D3F00A61D51 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714649F20385D3F00A61D51 /* BusinessError.swift */; };
 		771464A2203860CE00A61D51 /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 771464A1203860CE00A61D51 /* default.gpx */; };
 		771464A4203886A700A61D51 /* JLTGradientPathRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464A3203886A700A61D51 /* JLTGradientPathRenderer.swift */; };
+		771464AA203896ED00A61D51 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464A9203896ED00A61D51 /* TimelineTableViewCell.swift */; };
+		771464AC2038971F00A61D51 /* TimelineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771464AB2038971F00A61D51 /* TimelineTableViewCell.xib */; };
+		771464AE2038B04700A61D51 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464AD2038B04700A61D51 /* ArrayExtensions.swift */; };
 		7736AE6D203768AA00BB6780 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6C203768AA00BB6780 /* Status.swift */; };
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
@@ -81,6 +84,9 @@
 		7714649F20385D3F00A61D51 /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
 		771464A1203860CE00A61D51 /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		771464A3203886A700A61D51 /* JLTGradientPathRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLTGradientPathRenderer.swift; sourceTree = "<group>"; };
+		771464A9203896ED00A61D51 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		771464AB2038971F00A61D51 /* TimelineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineTableViewCell.xib; sourceTree = "<group>"; };
+		771464AD2038B04700A61D51 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		7736AE6C203768AA00BB6780 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7736AE6E20376A8A00BB6780 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 			children = (
 				7736AE9320378BBE00BB6780 /* UIViewControllerExtensions.swift */,
 				7736AEA22037AD6400BB6780 /* CLLocationExtensions.swift */,
+				771464AD2038B04700A61D51 /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +268,8 @@
 			children = (
 				7736AEB12037B73000BB6780 /* PackageTableViewCell.swift */,
 				7736AEB32037B75400BB6780 /* PackageTableViewCell.xib */,
+				771464A9203896ED00A61D51 /* TimelineTableViewCell.swift */,
+				771464AB2038971F00A61D51 /* TimelineTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -490,6 +499,7 @@
 				771464A2203860CE00A61D51 /* default.gpx in Resources */,
 				7736AEB42037B75400BB6780 /* PackageTableViewCell.xib in Resources */,
 				7775D3232036E015000935CA /* Login.storyboard in Resources */,
+				771464AC2038971F00A61D51 /* TimelineTableViewCell.xib in Resources */,
 				77C121402037EC8800223BCE /* ConfirmReceiveResponse.json in Resources */,
 				7736AE9620378DA500BB6780 /* Package.storyboard in Resources */,
 				7736AEAF2037B4FF00BB6780 /* PackageListResponse.json in Resources */,
@@ -709,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7714649E203847B600A61D51 /* User.swift in Sources */,
+				771464AE2038B04700A61D51 /* ArrayExtensions.swift in Sources */,
 				7736AE91203788EA00BB6780 /* APIManager.swift in Sources */,
 				77C121442037ED0300223BCE /* FinishTransportationResponse.swift in Sources */,
 				7736AEA92037B3F200BB6780 /* PackageListResponse.swift in Sources */,
@@ -732,6 +743,7 @@
 				7736AE862037755800BB6780 /* LoginResponse.swift in Sources */,
 				77C121422037ECA000223BCE /* ConfirmReceiveResponse.swift in Sources */,
 				77C1213E2037DFCB00223BCE /* TransportationPackagesResponse.swift in Sources */,
+				771464AA203896ED00A61D51 /* TimelineTableViewCell.swift in Sources */,
 				7736AEA32037AD6400BB6780 /* CLLocationExtensions.swift in Sources */,
 				77C121382037C6E800223BCE /* PackageRoutesViewController.swift in Sources */,
 				7736AE8D20377A5300BB6780 /* UserRouter.swift in Sources */,

@@ -12,7 +12,7 @@ import Foundation
 enum PackageRouter: APIConfiguration {
 
     case list
-    case routes
+    case routes(latitude: Double, longitude: Double)
     case packageReceive(id: String)
     case finishTransportation
 
@@ -33,8 +33,8 @@ enum PackageRouter: APIConfiguration {
         switch self {
         case .list:
             return nil
-        case .routes:
-            return nil
+        case let .routes(latitude: latitude, longitude: longitude):
+            return ["coordinates": ["latitude": latitude, "longitude": longitude]]
         case let .packageReceive(id: id):
             return ["id": id]
         case .finishTransportation:

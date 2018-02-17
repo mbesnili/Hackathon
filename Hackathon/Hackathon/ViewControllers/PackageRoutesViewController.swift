@@ -11,24 +11,19 @@ import MapKit
 
 class PackageRoutesViewController: BaseViewController {
 
-    @IBOutlet var pickUpButton: UIButton!
-    @IBOutlet var finishTransportationButton: UIButton!
-    @IBOutlet var addressLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
-
+    @IBOutlet var timelineTableView: UITableView!
     var getTransportationPackages: TransportationPackagesResponse?
 
     var currentLocation: CLLocation!
 
     override func viewDidLoad() {
         title = R.string.localization.routesTitle()
-        pickUpButton.setTitle(R.string.localization.routesPickUpButtonTitle(), for: [])
-        finishTransportationButton.setTitle(R.string.localization.routesFinishButtonTitle(), for: [])
 
         mapView.delegate = self
 
         startAnimating()
-        APIManager.getTransportationPackages { [weak self] rawTransportationPackages in
+        APIManager.getTransportationPackages(latitude: currentLocation.latitude, longitude: currentLocation.longitude) { [weak self] rawTransportationPackages in
             self?.stopAnimating()
             switch rawTransportationPackages {
             case let .success(transportationPackages):
@@ -37,13 +32,15 @@ class PackageRoutesViewController: BaseViewController {
                 } else {
                     self?.getTransportationPackages = transportationPackages
                     self?.group(packages: transportationPackages.packages, with: transportationPackages.gatheringPoint)
+                    self?.timelineTableView.reloadData()
                 }
             case let .failure(error):
                 self?.showError(error: error)
             }
         }
-        pickUpButton.isHidden = true
-        finishTransportationButton.isHidden = true
+        timelineTableView.tableFooterView = UIView(frame: .zero)
+        timelineTableView.register(cellType: TimelineTableViewCell.self)
+        timelineTableView.separatorStyle = .none
     }
 
     func group(packages: [Package], with endingPoint: Location) {
@@ -67,7 +64,7 @@ class PackageRoutesViewController: BaseViewController {
 
         let endingPointAnnotation = MKPointAnnotation()
         userLocationAnnotation.coordinate = CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude)
-        userLocationAnnotation.title = "Gathering point"
+        userLocationAnnotation.title = R.string.localization.routesGatheringPointTitle()
         annotations.append(endingPointAnnotation)
 
         draw(annotations: annotations)
@@ -124,64 +121,6 @@ class PackageRoutesViewController: BaseViewController {
             completion?()
         }
     }
-
-    func drawRoute(sourceCoordinate: CLLocationCoordinate2D, sourceTitle: String, sourceSubtitle: String, destinationCoordinate: CLLocationCoordinate2D, destinationTitle: String, completion: (() -> Void)? = nil) {
-
-        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinate, addressDictionary: nil)
-        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
-
-        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-
-        let sourceAnnotation = MKPointAnnotation()
-        sourceAnnotation.title = sourceTitle
-        sourceAnnotation.subtitle = sourceSubtitle
-
-        if let location = sourcePlacemark.location {
-            sourceAnnotation.coordinate = location.coordinate
-        }
-
-        let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = destinationTitle
-
-        if let location = destinationPlacemark.location {
-            destinationAnnotation.coordinate = location.coordinate
-        }
-
-        mapView.showAnnotations([sourceAnnotation, destinationAnnotation], animated: true)
-
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
-
-        let directions = MKDirections(request: directionRequest)
-
-        directions.calculate { [weak self]
-            (response, error) -> Void in
-
-            guard let response = response else {
-                if let error = error {
-                    print("Error: \(error)")
-                }
-
-                return
-            }
-
-            let route = response.routes[0]
-            self?.mapView.add(route.polyline, level: .aboveRoads)
-
-            let rect = route.polyline.boundingMapRect
-            self?.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-            completion?()
-        }
-    }
-
-    @IBAction func pickUpButtonTapped() {
-    }
-
-    @IBAction func finishTransportationButtonTapped() {
-    }
 }
 
 extension PackageRoutesViewController: MKMapViewDelegate {
@@ -201,9 +140,6 @@ extension PackageRoutesViewController: MKMapViewDelegate {
         guard let coordinate = view.annotation?.coordinate else {
             return
         }
-
-        finishTransportationButton.isHidden = !(coordinate.latitude == response.gatheringPoint.latitude && coordinate.longitude == response.gatheringPoint.longitude)
-        pickUpButton.isHidden = (coordinate.latitude == response.gatheringPoint.latitude && coordinate.longitude == response.gatheringPoint.longitude)
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -218,15 +154,11 @@ extension PackageRoutesViewController: MKMapViewDelegate {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         return view
     }
 
     func mapView(_: MKMapView, didDeselect _: MKAnnotationView) {
-        pickUpButton.isHidden = true
-        finishTransportationButton.isHidden = true
-        addressLabel.text = nil
     }
 
     func mapView(_: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped _: UIControl) {
@@ -238,7 +170,48 @@ extension PackageRoutesViewController: MKMapViewDelegate {
             package.coordinates.latitude == annotation.coordinate.latitude && package.coordinates.longitude == annotation.coordinate.longitude
         }).first
         if package != nil {
-            addressLabel.text = package!.address
         }
+    }
+}
+
+extension PackageRoutesViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in _: UITableView) -> Int {
+        guard let packages = getTransportationPackages?.packages else {
+            return 0
+        }
+        return packages.count + 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: TimelineTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+
+        if indexPath.section == getTransportationPackages!.packages.count {
+            cell.addressLabel.text = ""
+            cell.descriptionLabel.text = R.string.localization.routesGatheringPointTitle()
+            cell.actionButton.setTitle(R.string.localization.routesFinishButtonTitle(), for: [])
+            cell.actionButton.isHidden = !getTransportationPackages!.packages.readyToFinish
+        } else {
+            let index = getTransportationPackages!.packages.index { (package) -> Bool in
+                return package.state == .claimed
+            }
+            if index == indexPath.section {
+                cell.actionButton.isHidden = false
+                cell.actionButton.setTitle(R.string.localization.routesPickUpButtonTitle(), for: [])
+            } else {
+                cell.actionButton.isHidden = true
+            }
+            cell.addressLabel.text = getTransportationPackages!.packages[indexPath.section].address
+            cell.descriptionLabel.text = getTransportationPackages!.packages[indexPath.section].packageDescription
+        }
+
+        return cell
+    }
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        guard let _ = getTransportationPackages?.packages else {
+            return 0
+        }
+        return 1
     }
 }

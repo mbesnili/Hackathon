@@ -86,7 +86,7 @@ class APIManager {
         #endif
     }
 
-    static func getTransportationPackages(completion: @escaping (Result<TransportationPackagesResponse>) -> Void) {
+    static func getTransportationPackages(latitude: Double, longitude: Double, completion: @escaping (Result<TransportationPackagesResponse>) -> Void) {
         #if MOCK
             let data = try! Data(contentsOf: R.file.getPackageRoutesResponseJson()!, options: Data.ReadingOptions.alwaysMapped)
             guard let dictionary = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any], let transportationPackagesResponse = try? TransportationPackagesResponse(object: dictionary) else {
@@ -94,7 +94,7 @@ class APIManager {
             }
             completion(.success(transportationPackagesResponse))
         #else
-            Alamofire.request(PackageRouter.routes).responseJSON(completionHandler: { rawResponse in
+            Alamofire.request(PackageRouter.routes(latitude: latitude, longitude: longitude)).responseJSON(completionHandler: { rawResponse in
                 switch rawResponse.result {
                 case let .failure(error):
                     completion(.failure(error))
