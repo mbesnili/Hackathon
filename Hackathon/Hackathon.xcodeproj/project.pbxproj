@@ -42,6 +42,7 @@
 		7775D3332036E015000935CA /* HackathonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D3322036E015000935CA /* HackathonTests.swift */; };
 		7775D33E2036E015000935CA /* HackathonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D33D2036E015000935CA /* HackathonUITests.swift */; };
 		77C121382037C6E800223BCE /* PackageRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121372037C6E800223BCE /* PackageRoutesViewController.swift */; };
+		77C1213C2037DE7100223BCE /* GetPackageRoutesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		7775D33D2036E015000935CA /* HackathonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackathonUITests.swift; sourceTree = "<group>"; };
 		7775D33F2036E015000935CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77C121372037C6E800223BCE /* PackageRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageRoutesViewController.swift; sourceTree = "<group>"; };
+		77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPackageRoutesResponse.json; sourceTree = "<group>"; };
 		790E3DDE8D6C2440058A8DA4 /* Pods_Hackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5E65216845CB9AB327C4EB /* Pods-Hackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon.release.xcconfig"; sourceTree = "<group>"; };
 		B0A94F30529E8800B829B3D1 /* Pods-HackathonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackathonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackathonTests/Pods-HackathonTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				7736AEAE2037B4FF00BB6780 /* PackageListResponse.json */,
 				7736AE83203774C400BB6780 /* LoginResponse.json */,
+				77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				7736AE9C2037A11B00BB6780 /* InfoPlist.strings in Resources */,
 				7736AE7A20376FE800BB6780 /* Localization.strings in Resources */,
 				7736AE84203774C400BB6780 /* LoginResponse.json in Resources */,
+				77C1213C2037DE7100223BCE /* GetPackageRoutesResponse.json in Resources */,
 				7775D3252036E015000935CA /* Assets.xcassets in Resources */,
 				7736AEB42037B75400BB6780 /* PackageTableViewCell.xib in Resources */,
 				7775D3232036E015000935CA /* Login.storyboard in Resources */,
