@@ -10,12 +10,18 @@ import Foundation
 import Reusable
 import UIFontComplete
 
+protocol TimelineTableViewCellDelegate: NSObjectProtocol {
+    func timelineTableViewCellActionButtonTapped(_ cell: TimelineTableViewCell)
+}
+
 final class TimelineTableViewCell: UITableViewCell, NibReusable {
 
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var actionButton: UIButton!
     @IBOutlet var stackView: UIStackView!
+
+    weak var delegate: TimelineTableViewCellDelegate?
 
     override func awakeFromNib() {
 
@@ -28,5 +34,9 @@ final class TimelineTableViewCell: UITableViewCell, NibReusable {
         addressLabel.textColor = UIColor.black
 
         actionButton.isHidden = true
+    }
+
+    @IBAction func actionButtonTapped() {
+        delegate?.timelineTableViewCellActionButtonTapped(self)
     }
 }

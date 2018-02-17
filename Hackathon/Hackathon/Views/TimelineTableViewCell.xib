@@ -35,6 +35,9 @@
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Piw-4l-d25">
                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="actionButtonTapped" destination="mk0-dF-Klu" eventType="touchUpInside" id="s85-19-Xsw"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>

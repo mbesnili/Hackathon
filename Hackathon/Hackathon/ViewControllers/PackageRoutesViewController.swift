@@ -128,7 +128,7 @@ extension PackageRoutesViewController: MKMapViewDelegate {
     func mapView(_: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let gradientColors = [UIColor.green, UIColor.blue, UIColor.yellow, UIColor.red]
         let polylineRenderer = JLTGradientPathRenderer(polyline: overlay as! MKPolyline, colors: gradientColors)
-        polylineRenderer.lineWidth = 7
+        polylineRenderer.lineWidth = 6.0
         return polylineRenderer
     }
 
@@ -139,6 +139,13 @@ extension PackageRoutesViewController: MKMapViewDelegate {
 
         guard let coordinate = view.annotation?.coordinate else {
             return
+        }
+
+        let index = response.packages.index { (package) -> Bool in
+            return package.coordinates.equals(coordinates: coordinate)
+        }
+        if index != nil {
+            timelineTableView.scrollToRow(at: IndexPath(item: 0, section: index!), at: .top, animated: true)
         }
     }
 
@@ -154,11 +161,9 @@ extension PackageRoutesViewController: MKMapViewDelegate {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         return view
-    }
-
-    func mapView(_: MKMapView, didDeselect _: MKAnnotationView) {
     }
 
     func mapView(_: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped _: UIControl) {
