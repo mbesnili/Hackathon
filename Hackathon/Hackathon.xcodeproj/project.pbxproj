@@ -26,6 +26,9 @@
 		7736AE9620378DA500BB6780 /* Package.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7736AE9520378DA500BB6780 /* Package.storyboard */; };
 		7736AE98203792E100BB6780 /* PackageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE97203792E100BB6780 /* PackageListViewController.swift */; };
 		7736AE9C2037A11B00BB6780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7736AE9E2037A11B00BB6780 /* InfoPlist.strings */; };
+		7736AEA12037A9E900BB6780 /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEA02037A9E900BB6780 /* Capacity.swift */; };
+		7736AEA32037AD6400BB6780 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEA22037AD6400BB6780 /* CLLocationExtensions.swift */; };
+		7736AEA72037ADC900BB6780 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEA62037ADC900BB6780 /* LocationProtocol.swift */; };
 		7775D31E2036E015000935CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31D2036E015000935CA /* AppDelegate.swift */; };
 		7775D3202036E015000935CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31F2036E015000935CA /* BaseViewController.swift */; };
 		7775D3232036E015000935CA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7775D3212036E015000935CA /* Login.storyboard */; };
@@ -73,9 +76,11 @@
 		7736AE9320378BBE00BB6780 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		7736AE9520378DA500BB6780 /* Package.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Package.storyboard; sourceTree = "<group>"; };
 		7736AE97203792E100BB6780 /* PackageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListViewController.swift; sourceTree = "<group>"; };
-		7736AE9920379F2200BB6780 /* PermissionConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PermissionConfiguration.xcconfig; sourceTree = "<group>"; };
 		7736AE9D2037A11B00BB6780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7736AE9F2037A11D00BB6780 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7736AEA02037A9E900BB6780 /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
+		7736AEA22037AD6400BB6780 /* CLLocationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
+		7736AEA62037ADC900BB6780 /* LocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
 		7775D31A2036E015000935CA /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7775D31D2036E015000935CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7775D31F2036E015000935CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 				7736AE7020376B6000BB6780 /* Package.swift */,
 				7736AE852037755800BB6780 /* LoginResponse.swift */,
 				7736AE872037767600BB6780 /* CheckResponse.swift */,
+				7736AEA02037A9E900BB6780 /* Capacity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,8 +196,17 @@
 			isa = PBXGroup;
 			children = (
 				7736AE9320378BBE00BB6780 /* UIViewControllerExtensions.swift */,
+				7736AEA22037AD6400BB6780 /* CLLocationExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7736AEA52037ADBC00BB6780 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7736AEA62037ADC900BB6780 /* LocationProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		7775D3112036E015000935CA = {
@@ -219,6 +234,7 @@
 		7775D31C2036E015000935CA /* Hackathon */ = {
 			isa = PBXGroup;
 			children = (
+				7736AEA52037ADBC00BB6780 /* Protocols */,
 				7736AE9220378BB300BB6780 /* Extensions */,
 				7736AE822037744C00BB6780 /* Storyboards */,
 				7736AE7720376F9500BB6780 /* Resources */,
@@ -227,7 +243,6 @@
 				7736AE892037776E00BB6780 /* Network */,
 				7775D31D2036E015000935CA /* AppDelegate.swift */,
 				7775D3292036E015000935CA /* Info.plist */,
-				7736AE9920379F2200BB6780 /* PermissionConfiguration.xcconfig */,
 			);
 			path = Hackathon;
 			sourceTree = "<group>";
@@ -617,6 +632,8 @@
 				7736AE91203788EA00BB6780 /* APIManager.swift in Sources */,
 				7775D3202036E015000935CA /* BaseViewController.swift in Sources */,
 				7736AE7120376B6000BB6780 /* Package.swift in Sources */,
+				7736AEA12037A9E900BB6780 /* Capacity.swift in Sources */,
+				7736AEA72037ADC900BB6780 /* LocationProtocol.swift in Sources */,
 				7736AE9420378BBE00BB6780 /* UIViewControllerExtensions.swift in Sources */,
 				7775D31E2036E015000935CA /* AppDelegate.swift in Sources */,
 				7736AE882037767600BB6780 /* CheckResponse.swift in Sources */,
@@ -626,6 +643,7 @@
 				7736AE6D203768AA00BB6780 /* Status.swift in Sources */,
 				7736AE80203771F400BB6780 /* R.generated.swift in Sources */,
 				7736AE862037755800BB6780 /* LoginResponse.swift in Sources */,
+				7736AEA32037AD6400BB6780 /* CLLocationExtensions.swift in Sources */,
 				7736AE8D20377A5300BB6780 /* UserRouter.swift in Sources */,
 				7736AE8F20377D9800BB6780 /* LoginViewController.swift in Sources */,
 			);

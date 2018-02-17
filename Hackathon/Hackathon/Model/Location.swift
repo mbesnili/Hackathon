@@ -10,11 +10,11 @@ import Foundation
 import Marshal
 
 struct Location {
-    let latitude: Double
     let longitude: Double
+    let latitude: Double
 }
 
-extension Location: Unmarshaling, Marshaling {
+extension Location: Unmarshaling, Marshaling, LocationProtocol {
     typealias MarshalType = [String: Any]
 
     init(object: MarshaledObject) throws {

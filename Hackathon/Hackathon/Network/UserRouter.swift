@@ -24,13 +24,13 @@ enum UserRouter: APIConfiguration {
         switch self {
         case let .login(username: username, password: password):
             return ["username": username, "password": password]
-        case let .check(location: location, weight: weight, numberOfPieces: numberOfPieces):
-            return ["location": location.marshaled(), "weight": weight, "numberOfPieces": numberOfPieces]
+        case let .check(location: location, capacity):
+            return ["coordinates": location.marshaled(), "capacity": capacity.marshaled()]
         }
     }
 
     case login(username: String, password: String)
-    case check(location: Location, weight: Float, numberOfPieces: Int)
+    case check(location: LocationProtocol, capacity: Capacity)
 
     var method: HTTPMethod {
         switch self {

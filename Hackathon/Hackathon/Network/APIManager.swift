@@ -24,9 +24,7 @@ class APIManager {
             }
             completion(.success(loginResponse))
         #else
-
             Alamofire.request(UserRouter.login(username: username, password: password)).responseJSON { rawResponse in
-
                 switch rawResponse.result {
                 case let .failure(error):
                     completion(.failure(error))
@@ -41,6 +39,28 @@ class APIManager {
                     }
                 }
             }
+        #endif
+    }
+
+    static func check(location: LocationProtocol, capacity: Capacity, completion: @escaping (Result<CheckResponse>) -> Void) {
+        #if DEBUG
+            Alamofire.request(UserRouter.check(location: location, capacity: capacity)).responseJSON { rawResponse in
+                switch rawResponse.result {
+                case let .failure(error):
+                    completion(.failure(error))
+                case let .success(response):
+                    guard let responseDictionary = response as? [String: Any] else {
+                        return
+                    }
+                    if let checkResponse = try? CheckResponse(object: responseDictionary) {
+                        completion(.success(checkResponse))
+                    } else {
+                        completion(.failure(APIManagerError.parsingError))
+                    }
+                }
+            }
+        #else
+
         #endif
     }
 }
