@@ -18,7 +18,7 @@ struct Capacity {
 extension Capacity: Unmarshaling, Marshaling {
     typealias MarshalType = [String: Any]
     init(object: MarshaledObject) throws {
-        numberOfPieces = try object.value(for: "numberOfPieces")
+        numberOfPieces = try object.value(for: "pieces")
         weight = try object.value(for: "weight")
     }
 
