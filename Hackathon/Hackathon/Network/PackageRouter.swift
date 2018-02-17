@@ -13,6 +13,8 @@ enum PackageRouter: APIConfiguration {
 
     case list
     case routes
+    case packageReceive(id: String)
+    case finishTransportation
 
     var path: String {
         switch self {
@@ -20,6 +22,10 @@ enum PackageRouter: APIConfiguration {
             return "package/list"
         case .routes:
             return "transportation/apply"
+        case .packageReceive:
+            return "package/receive"
+        case .finishTransportation:
+            return "transportation/finish"
         }
     }
 
@@ -28,6 +34,10 @@ enum PackageRouter: APIConfiguration {
         case .list:
             return nil
         case .routes:
+            return nil
+        case let .packageReceive(id: id):
+            return ["id": id]
+        case .finishTransportation:
             return nil
         }
     }
@@ -38,6 +48,10 @@ enum PackageRouter: APIConfiguration {
             return Alamofire.HTTPMethod.get
         case .routes:
             return Alamofire.HTTPMethod.get
+        case .packageReceive:
+            return Alamofire.HTTPMethod.post
+        case .finishTransportation:
+            return Alamofire.HTTPMethod.post
         }
     }
 }

@@ -115,4 +115,30 @@ class APIManager {
             })
         #endif
     }
+
+    static func confirmReceive(for packageId: String, completion: @escaping (Result<ConfirmReceiveResponse>) -> Void) {
+        #if DEBUG
+            let data = try! Data(contentsOf: R.file.confirmReceiveResponseJson()!, options: Data.ReadingOptions.alwaysMapped)
+            guard let dictionary = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any], let confirmReceiveResponse = try? ConfirmReceiveResponse(object: dictionary) else {
+                return
+            }
+            completion(.success(confirmReceiveResponse))
+        #else
+            Alamofire.request(PackageRouter.packageReceive(id: packageId)).responseJSON(completionHandler: { rawResponse in
+                switch rawResponse.result {
+                case let .failure(error):
+                    completion(.failure(error))
+                case let .success(response):
+                    guard let responseDictionary = response as? [String: Any] else {
+                        return
+                    }
+                    if let confirmReceiveResponse = try? ConfirmReceiveResponse(object: responseDictionary) {
+                        completion(.success(confirmReceiveResponse))
+                    } else {
+                        completion(.failure(APIManagerError.parsingError))
+                    }
+                }
+            })
+        #endif
+    }
 }

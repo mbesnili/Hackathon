@@ -44,6 +44,9 @@
 		77C121382037C6E800223BCE /* PackageRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121372037C6E800223BCE /* PackageRoutesViewController.swift */; };
 		77C1213C2037DE7100223BCE /* GetPackageRoutesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */; };
 		77C1213E2037DFCB00223BCE /* TransportationPackagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1213D2037DFCB00223BCE /* TransportationPackagesResponse.swift */; };
+		77C121402037EC8800223BCE /* ConfirmReceiveResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 77C1213F2037EC8800223BCE /* ConfirmReceiveResponse.json */; };
+		77C121422037ECA000223BCE /* ConfirmReceiveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121412037ECA000223BCE /* ConfirmReceiveResponse.swift */; };
+		77C121442037ED0300223BCE /* FinishTransportationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121432037ED0300223BCE /* FinishTransportationResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,9 @@
 		77C121372037C6E800223BCE /* PackageRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageRoutesViewController.swift; sourceTree = "<group>"; };
 		77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPackageRoutesResponse.json; sourceTree = "<group>"; };
 		77C1213D2037DFCB00223BCE /* TransportationPackagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationPackagesResponse.swift; sourceTree = "<group>"; };
+		77C1213F2037EC8800223BCE /* ConfirmReceiveResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ConfirmReceiveResponse.json; sourceTree = "<group>"; };
+		77C121412037ECA000223BCE /* ConfirmReceiveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmReceiveResponse.swift; sourceTree = "<group>"; };
+		77C121432037ED0300223BCE /* FinishTransportationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTransportationResponse.swift; sourceTree = "<group>"; };
 		790E3DDE8D6C2440058A8DA4 /* Pods_Hackathon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackathon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5E65216845CB9AB327C4EB /* Pods-Hackathon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon.release.xcconfig"; sourceTree = "<group>"; };
 		B0A94F30529E8800B829B3D1 /* Pods-HackathonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackathonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackathonTests/Pods-HackathonTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +162,8 @@
 				7736AEA02037A9E900BB6780 /* Capacity.swift */,
 				7736AEA82037B3F200BB6780 /* PackageListResponse.swift */,
 				77C1213D2037DFCB00223BCE /* TransportationPackagesResponse.swift */,
+				77C121412037ECA000223BCE /* ConfirmReceiveResponse.swift */,
+				77C121432037ED0300223BCE /* FinishTransportationResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +197,7 @@
 				7736AEAE2037B4FF00BB6780 /* PackageListResponse.json */,
 				7736AE83203774C400BB6780 /* LoginResponse.json */,
 				77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */,
+				77C1213F2037EC8800223BCE /* ConfirmReceiveResponse.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -452,6 +461,7 @@
 				7775D3252036E015000935CA /* Assets.xcassets in Resources */,
 				7736AEB42037B75400BB6780 /* PackageTableViewCell.xib in Resources */,
 				7775D3232036E015000935CA /* Login.storyboard in Resources */,
+				77C121402037EC8800223BCE /* ConfirmReceiveResponse.json in Resources */,
 				7736AE9620378DA500BB6780 /* Package.storyboard in Resources */,
 				7736AEAF2037B4FF00BB6780 /* PackageListResponse.json in Resources */,
 			);
@@ -668,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7736AE91203788EA00BB6780 /* APIManager.swift in Sources */,
+				77C121442037ED0300223BCE /* FinishTransportationResponse.swift in Sources */,
 				7736AEA92037B3F200BB6780 /* PackageListResponse.swift in Sources */,
 				7775D3202036E015000935CA /* BaseViewController.swift in Sources */,
 				7736AE7120376B6000BB6780 /* Package.swift in Sources */,
@@ -684,6 +695,7 @@
 				7736AE6D203768AA00BB6780 /* Status.swift in Sources */,
 				7736AE80203771F400BB6780 /* R.generated.swift in Sources */,
 				7736AE862037755800BB6780 /* LoginResponse.swift in Sources */,
+				77C121422037ECA000223BCE /* ConfirmReceiveResponse.swift in Sources */,
 				77C1213E2037DFCB00223BCE /* TransportationPackagesResponse.swift in Sources */,
 				7736AEA32037AD6400BB6780 /* CLLocationExtensions.swift in Sources */,
 				77C121382037C6E800223BCE /* PackageRoutesViewController.swift in Sources */,
