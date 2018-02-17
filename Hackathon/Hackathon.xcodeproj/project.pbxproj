@@ -29,6 +29,9 @@
 		7736AEA12037A9E900BB6780 /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEA02037A9E900BB6780 /* Capacity.swift */; };
 		7736AEA32037AD6400BB6780 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEA22037AD6400BB6780 /* CLLocationExtensions.swift */; };
 		7736AEA72037ADC900BB6780 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEA62037ADC900BB6780 /* LocationProtocol.swift */; };
+		7736AEA92037B3F200BB6780 /* PackageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEA82037B3F200BB6780 /* PackageListResponse.swift */; };
+		7736AEAB2037B44400BB6780 /* PackageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AEAA2037B44400BB6780 /* PackageRouter.swift */; };
+		7736AEAF2037B4FF00BB6780 /* PackageListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 7736AEAE2037B4FF00BB6780 /* PackageListResponse.json */; };
 		7775D31E2036E015000935CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31D2036E015000935CA /* AppDelegate.swift */; };
 		7775D3202036E015000935CA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775D31F2036E015000935CA /* BaseViewController.swift */; };
 		7775D3232036E015000935CA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7775D3212036E015000935CA /* Login.storyboard */; };
@@ -81,6 +84,9 @@
 		7736AEA02037A9E900BB6780 /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		7736AEA22037AD6400BB6780 /* CLLocationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
 		7736AEA62037ADC900BB6780 /* LocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
+		7736AEA82037B3F200BB6780 /* PackageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListResponse.swift; sourceTree = "<group>"; };
+		7736AEAA2037B44400BB6780 /* PackageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageRouter.swift; sourceTree = "<group>"; };
+		7736AEAE2037B4FF00BB6780 /* PackageListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PackageListResponse.json; sourceTree = "<group>"; };
 		7775D31A2036E015000935CA /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7775D31D2036E015000935CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7775D31F2036E015000935CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 				7736AE852037755800BB6780 /* LoginResponse.swift */,
 				7736AE872037767600BB6780 /* CheckResponse.swift */,
 				7736AEA02037A9E900BB6780 /* Capacity.swift */,
+				7736AEA82037B3F200BB6780 /* PackageListResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +174,7 @@
 		7736AE812037741400BB6780 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				7736AEAE2037B4FF00BB6780 /* PackageListResponse.json */,
 				7736AE83203774C400BB6780 /* LoginResponse.json */,
 			);
 			path = JSON;
@@ -188,6 +196,7 @@
 				7736AE8A2037778A00BB6780 /* APIConfiguration.swift */,
 				7736AE8C20377A5300BB6780 /* UserRouter.swift */,
 				7736AE90203788EA00BB6780 /* APIManager.swift */,
+				7736AEAA2037B44400BB6780 /* PackageRouter.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -207,6 +216,13 @@
 				7736AEA62037ADC900BB6780 /* LocationProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7736AEB02037B66200BB6780 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7775D3112036E015000935CA = {
@@ -239,6 +255,7 @@
 				7736AE822037744C00BB6780 /* Storyboards */,
 				7736AE7720376F9500BB6780 /* Resources */,
 				7736AE7620376F8600BB6780 /* ViewControllers */,
+				7736AEB02037B66200BB6780 /* Views */,
 				7736AE6B203768A300BB6780 /* Model */,
 				7736AE892037776E00BB6780 /* Network */,
 				7775D31D2036E015000935CA /* AppDelegate.swift */,
@@ -419,6 +436,7 @@
 				7775D3252036E015000935CA /* Assets.xcassets in Resources */,
 				7775D3232036E015000935CA /* Login.storyboard in Resources */,
 				7736AE9620378DA500BB6780 /* Package.storyboard in Resources */,
+				7736AEAF2037B4FF00BB6780 /* PackageListResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,10 +648,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7736AE91203788EA00BB6780 /* APIManager.swift in Sources */,
+				7736AEA92037B3F200BB6780 /* PackageListResponse.swift in Sources */,
 				7775D3202036E015000935CA /* BaseViewController.swift in Sources */,
 				7736AE7120376B6000BB6780 /* Package.swift in Sources */,
 				7736AEA12037A9E900BB6780 /* Capacity.swift in Sources */,
 				7736AEA72037ADC900BB6780 /* LocationProtocol.swift in Sources */,
+				7736AEAB2037B44400BB6780 /* PackageRouter.swift in Sources */,
 				7736AE9420378BBE00BB6780 /* UIViewControllerExtensions.swift in Sources */,
 				7775D31E2036E015000935CA /* AppDelegate.swift in Sources */,
 				7736AE882037767600BB6780 /* CheckResponse.swift in Sources */,

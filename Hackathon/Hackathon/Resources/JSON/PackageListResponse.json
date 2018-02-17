@@ -1,0 +1,369 @@
+{
+  "status": {
+    "code": 0,
+    "success": true,
+    "message": "Success"
+  },
+  "packages": [
+    {
+      "_id": "5a877200631e256b33570921",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.506435128554,
+        "longitude": 28.622719638026
+      },
+      "capacity": {
+        "weight": 8.6615513539244,
+        "pieces": 2
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570922",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.564030933165,
+        "longitude": 28.559280315846
+      },
+      "capacity": {
+        "weight": 10.287344029891,
+        "pieces": 6
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570923",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.269168557712,
+        "longitude": 28.629036608755
+      },
+      "capacity": {
+        "weight": 4.7420973466935,
+        "pieces": 4
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570924",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.595637960764,
+        "longitude": 27.030250877328
+      },
+      "capacity": {
+        "weight": 10.682385299601,
+        "pieces": 2
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570925",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.596497078607,
+        "longitude": 28.911524851426
+      },
+      "capacity": {
+        "weight": 6.1482431653802,
+        "pieces": 2
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570926",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.821829112913,
+        "longitude": 27.890431908295
+      },
+      "capacity": {
+        "weight": 1.4507438022454,
+        "pieces": 1
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570927",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.400847803256,
+        "longitude": 27.810244839089
+      },
+      "capacity": {
+        "weight": 1.6710473173025,
+        "pieces": 7
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570928",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.278928643965,
+        "longitude": 27.935053820963
+      },
+      "capacity": {
+        "weight": 9.8417472586833,
+        "pieces": 10
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570929",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.1885653119,
+        "longitude": 28.788099591687
+      },
+      "capacity": {
+        "weight": 6.4697120460655,
+        "pieces": 2
+      }
+    },
+    {
+      "_id": "5a877200631e256b3357092a",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.781704814362,
+        "longitude": 27.299354536765
+      },
+      "capacity": {
+        "weight": 14.912327349887,
+        "pieces": 1
+      }
+    },
+    {
+      "_id": "5a877200631e256b3357092b",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.68215042625,
+        "longitude": 27.308948969645
+      },
+      "capacity": {
+        "weight": 13.125068950064,
+        "pieces": 1
+      }
+    },
+    {
+      "_id": "5a877200631e256b3357092c",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.485226376342,
+        "longitude": 27.736310930806
+      },
+      "capacity": {
+        "weight": 5.6792797951118,
+        "pieces": 6
+      }
+    },
+    {
+      "_id": "5a877200631e256b3357092d",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.705939858984,
+        "longitude": 28.465153500702
+      },
+      "capacity": {
+        "weight": 14.77397358329,
+        "pieces": 8
+      }
+    },
+    {
+      "_id": "5a877200631e256b3357092e",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.647808205304,
+        "longitude": 27.071481509483
+      },
+      "capacity": {
+        "weight": 6.25478383367,
+        "pieces": 7
+      }
+    },
+    {
+      "_id": "5a877200631e256b3357092f",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.467989452913,
+        "longitude": 28.916044287795
+      },
+      "capacity": {
+        "weight": 7.9948452011467,
+        "pieces": 8
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570930",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.132876324609,
+        "longitude": 27.473514731478
+      },
+      "capacity": {
+        "weight": 13.065587904722,
+        "pieces": 4
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570931",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.681973192784,
+        "longitude": 27.634701319655
+      },
+      "capacity": {
+        "weight": 7.4219185046347,
+        "pieces": 10
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570932",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.297326735538,
+        "longitude": 27.783866660103
+      },
+      "capacity": {
+        "weight": 3.2503183142386,
+        "pieces": 3
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570933",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.183948999485,
+        "longitude": 27.153060721652
+      },
+      "capacity": {
+        "weight": 6.7772090465263,
+        "pieces": 9
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570934",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.067654394771,
+        "longitude": 28.147793559249
+      },
+      "capacity": {
+        "weight": 12.00633875368,
+        "pieces": 5
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570935",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.361911777483,
+        "longitude": 27.23143814414
+      },
+      "capacity": {
+        "weight": 9.6480852160166,
+        "pieces": 5
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570936",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.666842484716,
+        "longitude": 27.911704523155
+      },
+      "capacity": {
+        "weight": 2.5941627980997,
+        "pieces": 6
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570937",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.629374355753,
+        "longitude": 28.516265033448
+      },
+      "capacity": {
+        "weight": 4.3460056321388,
+        "pieces": 5
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570938",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.362990667333,
+        "longitude": 28.434665929502
+      },
+      "capacity": {
+        "weight": 8.7870957928823,
+        "pieces": 2
+      }
+    },
+    {
+      "_id": "5a877252631e256b33570939",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.633828586116,
+        "longitude": 27.761579681819
+      },
+      "capacity": {
+        "weight": 11.980241772197,
+        "pieces": 1
+      }
+    },
+    {
+      "_id": "5a877252631e256b3357093a",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.609143762796,
+        "longitude": 27.030378522028
+      },
+      "capacity": {
+        "weight": 4.3095574752181,
+        "pieces": 6
+      }
+    },
+    {
+      "_id": "5a877252631e256b3357093b",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.583723520753,
+        "longitude": 28.372976531039
+      },
+      "capacity": {
+        "weight": 9.7158908677965,
+        "pieces": 3
+      }
+    },
+    {
+      "_id": "5a877252631e256b3357093c",
+      "state": "available",
+      "coordinates": {
+        "latitude": 40.157344706817,
+        "longitude": 27.489678007056
+      },
+      "capacity": {
+        "weight": 13.82112417341,
+        "pieces": 1
+      }
+    },
+    {
+      "_id": "5a877252631e256b3357093d",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.843222680651,
+        "longitude": 28.711939334244
+      },
+      "capacity": {
+        "weight": 5.4908327458713,
+        "pieces": 10
+      }
+    },
+    {
+      "_id": "5a877252631e256b3357093e",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.789891192422,
+        "longitude": 28.908203620039
+      },
+      "capacity": {
+        "weight": 7.0716303430705,
+        "pieces": 9
+      }
+    }
+  ]
+}
