@@ -28,8 +28,12 @@ class PackageRoutesViewController: BaseViewController {
         APIManager.getTransportationPackages { [weak self] rawTransportationPackages in
             switch rawTransportationPackages {
             case let .success(transportationPackages):
-                self?.getTransportationPackages = transportationPackages
-                self?.group(packages: transportationPackages.packages, with: transportationPackages.gatheringPoint)
+                if transportationPackages.packages.count == 0 {
+                    self?.showError(error: BusinessError.noRoutesFound)
+                } else {
+                    self?.getTransportationPackages = transportationPackages
+                    self?.group(packages: transportationPackages.packages, with: transportationPackages.gatheringPoint)
+                }
             case let .failure(error):
                 self?.showError(error: error)
             }

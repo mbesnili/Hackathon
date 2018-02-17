@@ -45,3 +45,5 @@
 "routes.gatheringPointTitle" = "Toplanma noktası";
 
 "user.logoutTitle" = "Çıkış yap";
+
+"error.noRoutesFound" = "Lokasyonunuza uygun dağıtım bulunamadı";

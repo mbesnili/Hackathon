@@ -11,6 +11,7 @@
 		42636F3C1CB90EA1562DD0F6 /* Pods_HackathonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7F538D20DBA59970B5F38D /* Pods_HackathonUITests.framework */; };
 		5A40C63EB0A89F836CCF39C3 /* Pods_Hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790E3DDE8D6C2440058A8DA4 /* Pods_Hackathon.framework */; };
 		7714649E203847B600A61D51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714649D203847B600A61D51 /* User.swift */; };
+		771464A020385D3F00A61D51 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714649F20385D3F00A61D51 /* BusinessError.swift */; };
 		7736AE6D203768AA00BB6780 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6C203768AA00BB6780 /* Status.swift */; };
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
@@ -75,6 +76,7 @@
 		33C81DA157DD3457365A0BF7 /* Pods-HackathonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackathonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackathonUITests/Pods-HackathonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		37ABD7ED04F3882F150ACDC3 /* Pods-Hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		7714649D203847B600A61D51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7714649F20385D3F00A61D51 /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
 		7736AE6C203768AA00BB6780 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7736AE6E20376A8A00BB6780 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				7736AE892037776E00BB6780 /* Network */,
 				7775D31D2036E015000935CA /* AppDelegate.swift */,
 				7775D3292036E015000935CA /* Info.plist */,
+				7714649F20385D3F00A61D51 /* BusinessError.swift */,
 			);
 			path = Hackathon;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				7775D3202036E015000935CA /* BaseViewController.swift in Sources */,
 				7736AE7120376B6000BB6780 /* Package.swift in Sources */,
 				7736AEB22037B73000BB6780 /* PackageTableViewCell.swift in Sources */,
+				771464A020385D3F00A61D51 /* BusinessError.swift in Sources */,
 				7736AEA12037A9E900BB6780 /* Capacity.swift in Sources */,
 				7736AEA72037ADC900BB6780 /* LocationProtocol.swift in Sources */,
 				7736AEAB2037B44400BB6780 /* PackageRouter.swift in Sources */,

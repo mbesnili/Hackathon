@@ -78,7 +78,7 @@ extension PackageListViewController: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.stopUpdatingLocation()
         if let location = locations.first {
-            APIManager.check(location: location, capacity: Capacity(numberOfPieces: 20, weight: 7.0), completion: { _ in
+            APIManager.check(location: location, capacity: Capacity(numberOfPieces: 20, weight: 30), completion: { _ in
             })
         }
     }

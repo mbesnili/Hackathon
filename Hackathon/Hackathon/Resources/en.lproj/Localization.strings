@@ -45,3 +45,5 @@
 "routes.gatheringPointTitle" = "Gathering point";
 
 "user.logoutTitle" = "Logout";
+
+"error.noRoutesFound" = "No routes found for your location";
