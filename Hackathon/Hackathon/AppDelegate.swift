@@ -17,15 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-
         User.restoreIfLoggedIn()
-
-        if User.current == nil {
-            window?.rootViewController = R.storyboard.login().instantiateInitialViewController()
-        } else {
-            window?.rootViewController = R.storyboard.package().instantiateInitialViewController()
-        }
-
+        setRootViewController()
         window?.makeKeyAndVisible()
         return true
     }
@@ -53,10 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func loggedIn() {
-        window?.rootViewController = R.storyboard.package().instantiateInitialViewController()
+        setRootViewController()
     }
 
     func loggedOut() {
-        window?.rootViewController = R.storyboard.login().instantiateInitialViewController()
+        setRootViewController()
+    }
+
+    private func setRootViewController() {
+        if User.current == nil {
+            window?.rootViewController = R.storyboard.login().instantiateInitialViewController()
+        } else {
+            window?.rootViewController = R.storyboard.package().instantiateInitialViewController()
+        }
     }
 }
