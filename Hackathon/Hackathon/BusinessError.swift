@@ -10,11 +10,14 @@ import Foundation
 
 enum BusinessError: Error {
     case noRoutesFound
+    case noLocationFound
 
     var pushBack: Bool {
         switch self {
         case .noRoutesFound:
             return true
+        case .noLocationFound:
+            return false
         }
     }
 }
@@ -24,6 +27,8 @@ extension BusinessError: LocalizedError {
         switch self {
         case .noRoutesFound:
             return R.string.localization.errorNoRoutesFound()
+        case .noLocationFound:
+            return R.string.localization.errorNoLocationFound()
         }
     }
 }

@@ -47,3 +47,5 @@
 "user.logoutTitle" = "Logout";
 
 "error.noRoutesFound" = "No routes found for your location";
+
+"error.noLocationFound" = "We couldn't get your location, please try again!";

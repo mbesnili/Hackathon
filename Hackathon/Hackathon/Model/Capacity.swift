@@ -23,6 +23,6 @@ extension Capacity: Unmarshaling, Marshaling {
     }
 
     func marshaled() -> Capacity.MarshalType {
-        return ["numberOfPieces": numberOfPieces, "weight": weight]
+        return ["pieces": numberOfPieces, "weight": weight]
     }
 }

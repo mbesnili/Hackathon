@@ -6,6 +6,7 @@
 //  Copyright © 2018 mbesnili. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 import Marshal
 
@@ -24,6 +25,12 @@ extension Location: Unmarshaling, Marshaling, LocationProtocol {
 
     func marshaled() -> Location.MarshalType {
         return ["lat": latitude, "lon": longitude]
+    }
+}
+
+extension Location {
+    func equals(coordinates: CLLocationCoordinate2D) -> Bool {
+        return latitude == coordinates.latitude && longitude == coordinates.longitude
     }
 }
 

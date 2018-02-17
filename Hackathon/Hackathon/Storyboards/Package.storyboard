@@ -32,7 +32,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="7v3-Mu-XAj" kind="show" identifier="seguePackageRoutes" id="vMw-eK-TfC"/>
+                                    <action selector="fetchRoutesTapped:" destination="TaB-Ya-fbV" eventType="touchUpInside" id="Io6-Dp-Q4S"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,6 +52,7 @@
                     <connections>
                         <outlet property="applyButton" destination="uZX-nt-k6t" id="5uE-xA-aZp"/>
                         <outlet property="tableView" destination="gFh-hX-znS" id="Ich-k1-lhp"/>
+                        <segue destination="7v3-Mu-XAj" kind="show" identifier="seguePackageRoutes" id="LCx-Bb-6Ue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AND-ME-1Wr" userLabel="First Responder" sceneMemberID="firstResponder"/>

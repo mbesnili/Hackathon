@@ -15,7 +15,9 @@ class PackageListViewController: BaseViewController {
     @IBOutlet var applyButton: UIButton!
     @IBOutlet var tableView: UITableView!
 
+    var location: CLLocation?
     let locationManager = CLLocationManager()
+    var locationDisabled = true
 
     var packages = [Package]() {
         didSet {
@@ -41,13 +43,15 @@ class PackageListViewController: BaseViewController {
         permission.request { [weak self] status in
             switch status {
             case .authorized:
+                self?.startAnimating()
+                self?.locationDisabled = false
                 self?.locationManager.startUpdatingLocation()
             case .notDetermined:
                 fallthrough
             case .disabled:
                 fallthrough
             case .denied:
-                self?.applyButton.isEnabled = false
+                self?.locationDisabled = true
             }
         }
 
@@ -71,16 +75,41 @@ class PackageListViewController: BaseViewController {
         navigationController?.viewControllers.removeAll()
         navigationController?.removeFromParentViewController()
     }
+
+    @IBAction func fetchRoutesTapped(_: Any) {
+        if location == nil {
+            showError(error: BusinessError.noLocationFound)
+            return
+        }
+        performSegue(withIdentifier: R.segue.packageListViewController.seguePackageRoutes, sender: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if location == nil {
+            showError(error: BusinessError.noLocationFound)
+            return
+        }
+
+        if let typedInfo = R.segue.packageListViewController.seguePackageRoutes(segue: segue) {
+            typedInfo.destination.currentLocation = location!
+        }
+    }
 }
 
 extension PackageListViewController: CLLocationManagerDelegate {
 
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        locationManager.stopUpdatingLocation()
-        if let location = locations.first {
-            APIManager.check(location: location, capacity: Capacity(numberOfPieces: 20, weight: 30), completion: { _ in
+        if let location = locations.last {
+            self.location = location
+            APIManager.check(location: location, capacity: Capacity(numberOfPieces: 20, weight: 30), completion: { [weak self] _ in
+                self?.stopAnimating()
             })
         }
+    }
+
+    func locationManager(_: CLLocationManager, didFailWithError error: Error) {
+        stopAnimating()
+        showError(error: error)
     }
 }
 

@@ -31,7 +31,7 @@ extension Package: Unmarshaling {
         id = try object.value(for: "_id")
         capacity = try object.value(for: "capacity")
         coordinates = try object.value(for: "coordinates")
-        packageDescription = (try? object.value(for: "description")) ?? "Osman"
+        packageDescription = (try? object.value(for: "description")) ?? ""
         state = try object.value(for: "state")
         address = (try? object.value(for: "address")) ?? ""
     }

@@ -18,6 +18,8 @@ class PackageRoutesViewController: BaseViewController {
 
     var getTransportationPackages: TransportationPackagesResponse?
 
+    var currentLocation: CLLocation!
+
     override func viewDidLoad() {
         title = R.string.localization.routesTitle()
         pickUpButton.setTitle(R.string.localization.routesPickUpButtonTitle(), for: [])
@@ -25,7 +27,9 @@ class PackageRoutesViewController: BaseViewController {
 
         mapView.delegate = self
 
+        startAnimating()
         APIManager.getTransportationPackages { [weak self] rawTransportationPackages in
+            self?.stopAnimating()
             switch rawTransportationPackages {
             case let .success(transportationPackages):
                 if transportationPackages.packages.count == 0 {
@@ -43,14 +47,81 @@ class PackageRoutesViewController: BaseViewController {
     }
 
     func group(packages: [Package], with endingPoint: Location) {
-        if packages.count == 1 {
-            drawRoute(sourceCoordinate: CLLocationCoordinate2D(latitude: packages[0].coordinates.latitude, longitude: packages[0].coordinates.longitude), sourceTitle: packages[0].packageDescription, sourceSubtitle: packages[0].state.description, destinationCoordinate: CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude), destinationTitle: R.string.localization.routesGatheringPointTitle())
+
+        var annotations = [MKPointAnnotation]()
+
+        let userLocationAnnotation = MKPointAnnotation()
+        userLocationAnnotation.coordinate = currentLocation.coordinate
+        userLocationAnnotation.title = "User's location"
+        annotations.append(userLocationAnnotation)
+
+        let packageAnnotations = packages.map { (package) -> MKPointAnnotation in
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: package.coordinates.latitude, longitude: package.coordinates.longitude)
+            annotation.title = package.packageDescription
+            annotation.subtitle = package.state.description
+            return annotation
+        }
+
+        annotations.append(contentsOf: packageAnnotations)
+
+        let endingPointAnnotation = MKPointAnnotation()
+        userLocationAnnotation.coordinate = CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude)
+        userLocationAnnotation.title = "Gathering point"
+        annotations.append(endingPointAnnotation)
+
+        draw(annotations: annotations)
+    }
+
+    func draw(annotations: [MKPointAnnotation]) {
+        if annotations.count < 2 {
+            return
+        } else if annotations.count == 2 {
+            draw(source: annotations[0], destination: annotations[1])
         } else {
-            drawRoute(sourceCoordinate: CLLocationCoordinate2D(latitude: packages[0].coordinates.latitude, longitude: packages[0].coordinates.longitude), sourceTitle: packages[0].packageDescription, sourceSubtitle: packages[0].state.description, destinationCoordinate: CLLocationCoordinate2D(latitude: packages[1].coordinates.latitude, longitude: packages[1].coordinates.longitude), destinationTitle: packages[1].packageDescription, completion: { [weak self] in
-                var mutablePackages = packages
-                mutablePackages.removeFirst()
-                self?.group(packages: mutablePackages, with: endingPoint)
+            draw(source: annotations[0], destination: annotations[1], completion: { [weak self] in
+                var mutableAnnotations = annotations
+                mutableAnnotations.removeFirst()
+                self?.draw(annotations: mutableAnnotations)
             })
+        }
+    }
+
+    func draw(source: MKPointAnnotation, destination: MKPointAnnotation, completion: (() -> Void)? = nil) {
+
+        let sourcePlacemark = MKPlacemark(coordinate: source.coordinate)
+        let destinationPlacemark = MKPlacemark(coordinate: destination.coordinate)
+
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+
+        mapView.addAnnotation(source)
+        mapView.addAnnotation(destination)
+
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+
+        let directions = MKDirections(request: directionRequest)
+
+        directions.calculate { [weak self]
+            (response, error) -> Void in
+
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+
+                return
+            }
+
+            let route = response.routes[0]
+            self?.mapView.add(route.polyline, level: .aboveRoads)
+
+            let rect = route.polyline.boundingMapRect
+            self?.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+            completion?()
         }
     }
 

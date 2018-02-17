@@ -6,18 +6,21 @@
 //  Copyright © 2018 mbesnili. All rights reserved.
 //
 
+import NVActivityIndicatorView
 import UIKit
 
 class BaseViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private lazy var indicatorView = NVActivityIndicatorView(frame: CGRect(origin: CGPoint(x: (view.bounds.width - NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE.width) / 2, y: (view.bounds.height - NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE.height) / 2), size: NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE), type: .ballScaleMultiple, color: UIColor.blue)
 
-        // Do any additional setup after loading the view, typically from a nib.
+    func startAnimating() {
+        if indicatorView.superview == nil {
+            view.addSubview(indicatorView)
+        }
+        indicatorView.startAnimating()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func stopAnimating() {
+        indicatorView.stopAnimating()
     }
 }

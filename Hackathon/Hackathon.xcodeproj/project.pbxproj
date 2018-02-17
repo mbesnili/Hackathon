@@ -12,6 +12,7 @@
 		5A40C63EB0A89F836CCF39C3 /* Pods_Hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790E3DDE8D6C2440058A8DA4 /* Pods_Hackathon.framework */; };
 		7714649E203847B600A61D51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714649D203847B600A61D51 /* User.swift */; };
 		771464A020385D3F00A61D51 /* BusinessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714649F20385D3F00A61D51 /* BusinessError.swift */; };
+		771464A2203860CE00A61D51 /* default.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 771464A1203860CE00A61D51 /* default.gpx */; };
 		7736AE6D203768AA00BB6780 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6C203768AA00BB6780 /* Status.swift */; };
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
@@ -77,6 +78,7 @@
 		37ABD7ED04F3882F150ACDC3 /* Pods-Hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon.debug.xcconfig"; sourceTree = "<group>"; };
 		7714649D203847B600A61D51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7714649F20385D3F00A61D51 /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
+		771464A1203860CE00A61D51 /* default.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		7736AE6C203768AA00BB6780 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7736AE6E20376A8A00BB6780 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		7736AE7720376F9500BB6780 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				771464A1203860CE00A61D51 /* default.gpx */,
 				7736AE812037741400BB6780 /* JSON */,
 				7736AE7F203771F400BB6780 /* R.generated.swift */,
 				7775D3242036E015000935CA /* Assets.xcassets */,
@@ -481,6 +484,7 @@
 				7736AE84203774C400BB6780 /* LoginResponse.json in Resources */,
 				77C1213C2037DE7100223BCE /* GetPackageRoutesResponse.json in Resources */,
 				7775D3252036E015000935CA /* Assets.xcassets in Resources */,
+				771464A2203860CE00A61D51 /* default.gpx in Resources */,
 				7736AEB42037B75400BB6780 /* PackageTableViewCell.xib in Resources */,
 				7775D3232036E015000935CA /* Login.storyboard in Resources */,
 				77C121402037EC8800223BCE /* ConfirmReceiveResponse.json in Resources */,
@@ -515,6 +519,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
@@ -524,6 +529,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
