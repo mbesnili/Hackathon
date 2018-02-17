@@ -58,14 +58,6 @@ class PackageListViewController: BaseViewController {
             }
         }
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewWillAppear")
-    }
-
-    @IBAction func applyButtonTapped() {
-    }
 }
 
 extension PackageListViewController: CLLocationManagerDelegate {

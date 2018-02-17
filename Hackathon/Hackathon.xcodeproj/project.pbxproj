@@ -880,7 +880,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
-					"MOCK=1",
 				);
 				INFOPLIST_FILE = Hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
