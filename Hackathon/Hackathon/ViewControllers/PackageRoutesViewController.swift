@@ -14,7 +14,7 @@ class PackageRoutesViewController: BaseViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var timelineTableView: UITableView!
     var getTransportationPackages: TransportationPackagesResponse?
-
+    var animatingIndexPaths = [IndexPath]()
     var currentLocation: CLLocation!
 
     override func viewDidLoad() {
@@ -190,7 +190,7 @@ extension PackageRoutesViewController: UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TimelineTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-
+        cell.delegate = self
         if indexPath.section == getTransportationPackages!.packages.count {
             cell.addressLabel.text = ""
             cell.descriptionLabel.text = R.string.localization.routesGatheringPointTitle()
@@ -209,6 +209,10 @@ extension PackageRoutesViewController: UITableViewDelegate, UITableViewDataSourc
             cell.addressLabel.text = getTransportationPackages!.packages[indexPath.section].address
             cell.descriptionLabel.text = getTransportationPackages!.packages[indexPath.section].packageDescription
         }
+        if animatingIndexPaths.contains(indexPath) {
+            cell.actionButton.isHidden = true
+            cell.activityIndicatorView.startAnimating()
+        }
 
         return cell
     }
@@ -218,5 +222,34 @@ extension PackageRoutesViewController: UITableViewDelegate, UITableViewDataSourc
             return 0
         }
         return 1
+    }
+}
+
+extension PackageRoutesViewController: TimelineTableViewCellDelegate {
+
+    func timelineTableViewCellActionButtonTapped(_ cell: TimelineTableViewCell) {
+        if let indexPath = timelineTableView.indexPath(for: cell) {
+            animatingIndexPaths.append(indexPath)
+            cell.actionButton.isHidden = true
+            cell.activityIndicatorView.startAnimating()
+            if indexPath.section == getTransportationPackages!.packages.count {
+
+            } else {
+                let package = getTransportationPackages!.packages[indexPath.section]
+                APIManager.pickUpPackage(for: package.id, completion: { [weak self] rawResponse in
+                    self?.animatingIndexPaths.removeLast()
+                    switch rawResponse {
+                    case let .failure(error):
+                        self?.showError(error: error)
+                    case let .success(response):
+                        if response.status.success {
+                            self?.getTransportationPackages?.packages[indexPath.section] = response.package
+                            self?.timelineTableView.reloadData()
+                        } else {
+                        }
+                    }
+                })
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ import Marshal
 struct TransportationPackagesResponse {
 
     let status: Status
-    let packages: [Package]
+    var packages: [Package]
     let gatheringPoint: Location
 }
 

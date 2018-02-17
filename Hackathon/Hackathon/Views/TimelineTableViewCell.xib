@@ -29,6 +29,9 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rfo-r1-Kly">
+                        <rect key="frame" x="326" y="29" width="20" height="20"/>
+                    </activityIndicatorView>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3g-JI-iji">
                         <rect key="frame" x="313" y="24" width="46" height="30"/>
                         <subviews>
@@ -52,6 +55,7 @@
                 <constraints>
                     <constraint firstItem="AJS-iA-2Y7" firstAttribute="leading" secondItem="TJC-le-fg6" secondAttribute="leading" id="HaV-mb-Gid"/>
                     <constraint firstItem="AJS-iA-2Y7" firstAttribute="top" secondItem="TJC-le-fg6" secondAttribute="bottom" constant="8" id="HjB-bn-28i"/>
+                    <constraint firstItem="Rfo-r1-Kly" firstAttribute="centerY" secondItem="J3g-JI-iji" secondAttribute="centerY" id="P0R-Oh-xsh"/>
                     <constraint firstAttribute="bottom" secondItem="IYJ-jb-Hed" secondAttribute="bottom" constant="8" id="SJL-iE-Cqa"/>
                     <constraint firstItem="TJC-le-fg6" firstAttribute="top" secondItem="AgN-7F-kpJ" secondAttribute="top" constant="8" id="asQ-cA-C5H"/>
                     <constraint firstItem="TJC-le-fg6" firstAttribute="leading" secondItem="AgN-7F-kpJ" secondAttribute="leading" constant="32" id="chn-8q-X1F"/>
@@ -60,6 +64,7 @@
                     <constraint firstAttribute="bottom" secondItem="AJS-iA-2Y7" secondAttribute="bottom" constant="8" id="jIF-Lv-F1X"/>
                     <constraint firstItem="IYJ-jb-Hed" firstAttribute="leading" secondItem="AgN-7F-kpJ" secondAttribute="leading" constant="16" id="mDc-FB-SBg"/>
                     <constraint firstItem="AJS-iA-2Y7" firstAttribute="trailing" secondItem="TJC-le-fg6" secondAttribute="trailing" id="pmv-i0-LVF"/>
+                    <constraint firstItem="Rfo-r1-Kly" firstAttribute="centerX" secondItem="J3g-JI-iji" secondAttribute="centerX" id="q21-n0-oLC"/>
                     <constraint firstItem="J3g-JI-iji" firstAttribute="leading" secondItem="TJC-le-fg6" secondAttribute="trailing" constant="22" id="zyZ-co-LDz"/>
                 </constraints>
             </tableViewCellContentView>
@@ -68,6 +73,7 @@
             </constraints>
             <connections>
                 <outlet property="actionButton" destination="Piw-4l-d25" id="Me7-z1-vKw"/>
+                <outlet property="activityIndicatorView" destination="Rfo-r1-Kly" id="sQK-9l-noy"/>
                 <outlet property="addressLabel" destination="AJS-iA-2Y7" id="bHh-rr-vyq"/>
                 <outlet property="descriptionLabel" destination="TJC-le-fg6" id="C1z-Oo-kO2"/>
                 <outlet property="stackView" destination="J3g-JI-iji" id="C41-P7-ctq"/>

@@ -9,13 +9,15 @@
 import Foundation
 import Marshal
 
-struct ConfirmReceiveResponse {
+struct PickUpPackageResponse {
 
     let status: Status
+    let package: Package
 }
 
-extension ConfirmReceiveResponse: Unmarshaling {
+extension PickUpPackageResponse: Unmarshaling {
     init(object: MarshaledObject) throws {
         status = try object.value(for: "status")
+        package = try object.value(for: "package")
     }
 }

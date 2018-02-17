@@ -1,0 +1,19 @@
+{
+    "status": {
+        "code": 200,
+        "success": true,
+        "message": ""
+    },
+    {
+        "_id": "5a877200631e256b33570921",
+        "state": "beingCarried",
+        "coordinates": {
+            "latitude": 41.085745,
+            "longitude": 29.004966
+        },
+        "capacity": {
+            "weight": 8.6615513539244,
+            "pieces": 2
+        }
+    }
+}

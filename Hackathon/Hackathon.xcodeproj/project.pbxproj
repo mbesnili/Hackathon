@@ -51,8 +51,8 @@
 		77C121382037C6E800223BCE /* PackageRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121372037C6E800223BCE /* PackageRoutesViewController.swift */; };
 		77C1213C2037DE7100223BCE /* GetPackageRoutesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */; };
 		77C1213E2037DFCB00223BCE /* TransportationPackagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1213D2037DFCB00223BCE /* TransportationPackagesResponse.swift */; };
-		77C121402037EC8800223BCE /* ConfirmReceiveResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 77C1213F2037EC8800223BCE /* ConfirmReceiveResponse.json */; };
-		77C121422037ECA000223BCE /* ConfirmReceiveResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121412037ECA000223BCE /* ConfirmReceiveResponse.swift */; };
+		77C121402037EC8800223BCE /* PickUpResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 77C1213F2037EC8800223BCE /* PickUpResponse.json */; };
+		77C121422037ECA000223BCE /* PickUpPackageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121412037ECA000223BCE /* PickUpPackageResponse.swift */; };
 		77C121442037ED0300223BCE /* FinishTransportationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C121432037ED0300223BCE /* FinishTransportationResponse.swift */; };
 		77C1214720381B2D00223BCE /* Localization.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 77C1214920381B2D00223BCE /* Localization.stringsdict */; };
 		77C1214D2038264000223BCE /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C1214C2038264000223BCE /* Formatter.swift */; };
@@ -129,8 +129,8 @@
 		77C121372037C6E800223BCE /* PackageRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageRoutesViewController.swift; sourceTree = "<group>"; };
 		77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPackageRoutesResponse.json; sourceTree = "<group>"; };
 		77C1213D2037DFCB00223BCE /* TransportationPackagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationPackagesResponse.swift; sourceTree = "<group>"; };
-		77C1213F2037EC8800223BCE /* ConfirmReceiveResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ConfirmReceiveResponse.json; sourceTree = "<group>"; };
-		77C121412037ECA000223BCE /* ConfirmReceiveResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmReceiveResponse.swift; sourceTree = "<group>"; };
+		77C1213F2037EC8800223BCE /* PickUpResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PickUpResponse.json; sourceTree = "<group>"; };
+		77C121412037ECA000223BCE /* PickUpPackageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpPackageResponse.swift; sourceTree = "<group>"; };
 		77C121432037ED0300223BCE /* FinishTransportationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTransportationResponse.swift; sourceTree = "<group>"; };
 		77C1214820381B2D00223BCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localization.stringsdict; sourceTree = "<group>"; };
 		77C1214A20381B2E00223BCE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = tr; path = tr.lproj/Localization.stringsdict; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 				7736AEA02037A9E900BB6780 /* Capacity.swift */,
 				7736AEA82037B3F200BB6780 /* PackageListResponse.swift */,
 				77C1213D2037DFCB00223BCE /* TransportationPackagesResponse.swift */,
-				77C121412037ECA000223BCE /* ConfirmReceiveResponse.swift */,
+				77C121412037ECA000223BCE /* PickUpPackageResponse.swift */,
 				77C121432037ED0300223BCE /* FinishTransportationResponse.swift */,
 				7714649D203847B600A61D51 /* User.swift */,
 			);
@@ -219,7 +219,7 @@
 				7736AEAE2037B4FF00BB6780 /* PackageListResponse.json */,
 				7736AE83203774C400BB6780 /* LoginResponse.json */,
 				77C1213B2037DE7100223BCE /* GetPackageRoutesResponse.json */,
-				77C1213F2037EC8800223BCE /* ConfirmReceiveResponse.json */,
+				77C1213F2037EC8800223BCE /* PickUpResponse.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -500,7 +500,7 @@
 				7736AEB42037B75400BB6780 /* PackageTableViewCell.xib in Resources */,
 				7775D3232036E015000935CA /* Login.storyboard in Resources */,
 				771464AC2038971F00A61D51 /* TimelineTableViewCell.xib in Resources */,
-				77C121402037EC8800223BCE /* ConfirmReceiveResponse.json in Resources */,
+				77C121402037EC8800223BCE /* PickUpResponse.json in Resources */,
 				7736AE9620378DA500BB6780 /* Package.storyboard in Resources */,
 				7736AEAF2037B4FF00BB6780 /* PackageListResponse.json in Resources */,
 			);
@@ -741,7 +741,7 @@
 				7736AE80203771F400BB6780 /* R.generated.swift in Sources */,
 				77C1214D2038264000223BCE /* Formatter.swift in Sources */,
 				7736AE862037755800BB6780 /* LoginResponse.swift in Sources */,
-				77C121422037ECA000223BCE /* ConfirmReceiveResponse.swift in Sources */,
+				77C121422037ECA000223BCE /* PickUpPackageResponse.swift in Sources */,
 				77C1213E2037DFCB00223BCE /* TransportationPackagesResponse.swift in Sources */,
 				771464AA203896ED00A61D51 /* TimelineTableViewCell.swift in Sources */,
 				7736AEA32037AD6400BB6780 /* CLLocationExtensions.swift in Sources */,

@@ -112,10 +112,10 @@ class APIManager {
         #endif
     }
 
-    static func confirmReceive(for packageId: String, completion: @escaping (Result<ConfirmReceiveResponse>) -> Void) {
-        #if DEBUG
+    static func pickUpPackage(for packageId: String, completion: @escaping (Result<PickUpPackageResponse>) -> Void) {
+        #if MOCK
             let data = try! Data(contentsOf: R.file.confirmReceiveResponseJson()!, options: Data.ReadingOptions.alwaysMapped)
-            guard let dictionary = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any], let confirmReceiveResponse = try? ConfirmReceiveResponse(object: dictionary) else {
+            guard let dictionary = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any], let confirmReceiveResponse = try? PickUpPackageResponse(object: dictionary) else {
                 return
             }
             completion(.success(confirmReceiveResponse))
@@ -128,7 +128,7 @@ class APIManager {
                     guard let responseDictionary = response as? [String: Any] else {
                         return
                     }
-                    if let confirmReceiveResponse = try? ConfirmReceiveResponse(object: responseDictionary) {
+                    if let confirmReceiveResponse = try? PickUpPackageResponse(object: responseDictionary) {
                         completion(.success(confirmReceiveResponse))
                     } else {
                         completion(.failure(APIManagerError.parsingError))

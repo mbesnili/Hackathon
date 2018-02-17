@@ -16,6 +16,7 @@ protocol TimelineTableViewCellDelegate: NSObjectProtocol {
 
 final class TimelineTableViewCell: UITableViewCell, NibReusable {
 
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var actionButton: UIButton!
@@ -27,6 +28,8 @@ final class TimelineTableViewCell: UITableViewCell, NibReusable {
 
         super.awakeFromNib()
 
+        selectionStyle = .none
+
         descriptionLabel.font = Font.helveticaNeueMedium.of(size: 20.0)
         addressLabel.font = Font.helveticaNeue.of(size: 16.0)
 
@@ -37,6 +40,7 @@ final class TimelineTableViewCell: UITableViewCell, NibReusable {
     }
 
     @IBAction func actionButtonTapped() {
+
         delegate?.timelineTableViewCellActionButtonTapped(self)
     }
 }

@@ -23,7 +23,7 @@ enum PackageRouter: APIConfiguration {
         case .routes:
             return "transportation/apply"
         case .packageReceive:
-            return "package/receive"
+            return "package/pickUp"
         case .finishTransportation:
             return "transportation/finish"
         }
