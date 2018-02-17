@@ -33,6 +33,7 @@ class LoginViewController: BaseViewController {
             switch rawLoginResponse {
             case let .success(loginResponse):
                 if loginResponse.status.success {
+                    User.current = loginResponse.user
                     self?.performSegue(withIdentifier: R.segue.loginViewController.seguePackageList, sender: nil)
                 } else {
                     self?.showError(error: loginResponse.status.error)

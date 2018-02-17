@@ -3,5 +3,9 @@
         "code": 200,
         "success": true,
         "message": ""
+    },
+    "user": {
+        "token": "5a877e8492d5dd0238459c51",
+        "username": "mahmut"
     }
 }

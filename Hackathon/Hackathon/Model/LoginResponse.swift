@@ -11,10 +11,12 @@ import Marshal
 
 struct LoginResponse {
     let status: Status
+    let user: User
 }
 
 extension LoginResponse: Unmarshaling {
     init(object: MarshaledObject) throws {
         status = try object.value(for: "status")
+        user = try object.value(for: "user")
     }
 }

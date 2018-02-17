@@ -10,6 +10,7 @@
 		2F79168D82F78F615B7CD5ED /* Pods_HackathonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C723A7DE1B4062BF234F359 /* Pods_HackathonTests.framework */; };
 		42636F3C1CB90EA1562DD0F6 /* Pods_HackathonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7F538D20DBA59970B5F38D /* Pods_HackathonUITests.framework */; };
 		5A40C63EB0A89F836CCF39C3 /* Pods_Hackathon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790E3DDE8D6C2440058A8DA4 /* Pods_Hackathon.framework */; };
+		7714649E203847B600A61D51 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7714649D203847B600A61D51 /* User.swift */; };
 		7736AE6D203768AA00BB6780 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6C203768AA00BB6780 /* Status.swift */; };
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
@@ -73,6 +74,7 @@
 		0C723A7DE1B4062BF234F359 /* Pods_HackathonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackathonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C81DA157DD3457365A0BF7 /* Pods-HackathonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackathonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackathonUITests/Pods-HackathonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		37ABD7ED04F3882F150ACDC3 /* Pods-Hackathon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hackathon/Pods-Hackathon.debug.xcconfig"; sourceTree = "<group>"; };
+		7714649D203847B600A61D51 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7736AE6C203768AA00BB6780 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7736AE6E20376A8A00BB6780 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				77C1213D2037DFCB00223BCE /* TransportationPackagesResponse.swift */,
 				77C121412037ECA000223BCE /* ConfirmReceiveResponse.swift */,
 				77C121432037ED0300223BCE /* FinishTransportationResponse.swift */,
+				7714649D203847B600A61D51 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7714649E203847B600A61D51 /* User.swift in Sources */,
 				7736AE91203788EA00BB6780 /* APIManager.swift in Sources */,
 				77C121442037ED0300223BCE /* FinishTransportationResponse.swift in Sources */,
 				7736AEA92037B3F200BB6780 /* PackageListResponse.swift in Sources */,
@@ -918,6 +922,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					MOCK,
 				);
 				INFOPLIST_FILE = Hackathon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
