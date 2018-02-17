@@ -49,3 +49,5 @@
 "error.noRoutesFound" = "Lokasyonunuza uygun dağıtım bulunamadı";
 
 "error.noLocationFound" = "Lokasyonunu bulamadık, lütfen daha sonra tekrar dene!";
+
+"error.unknownError" = "Bilinmeyen bir hata oluştu";

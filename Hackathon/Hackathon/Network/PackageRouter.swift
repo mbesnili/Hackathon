@@ -36,7 +36,7 @@ enum PackageRouter: APIConfiguration {
         case let .routes(latitude: latitude, longitude: longitude):
             return ["coordinates": ["latitude": latitude, "longitude": longitude]]
         case let .packageReceive(id: id):
-            return ["id": id]
+            return ["packageId": id]
         case .finishTransportation:
             return nil
         }

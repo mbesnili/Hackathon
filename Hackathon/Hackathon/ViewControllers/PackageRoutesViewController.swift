@@ -177,6 +177,19 @@ extension PackageRoutesViewController: MKMapViewDelegate {
         if package != nil {
         }
     }
+
+    func reloadAnnotation(for package: Package) {
+        for annotation in mapView.annotations {
+            if package.coordinates.equals(coordinates: annotation.coordinate) {
+                mapView.removeAnnotation(annotation)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: package.coordinates.latitude, longitude: package.coordinates.longitude)
+                annotation.title = package.packageDescription
+                annotation.subtitle = package.state.description
+                mapView.addAnnotation(annotation)
+            }
+        }
+    }
 }
 
 extension PackageRoutesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -233,7 +246,7 @@ extension PackageRoutesViewController: TimelineTableViewCellDelegate {
             cell.actionButton.isHidden = true
             cell.activityIndicatorView.startAnimating()
             if indexPath.section == getTransportationPackages!.packages.count {
-
+                //TODO: Finish transaction
             } else {
                 let package = getTransportationPackages!.packages[indexPath.section]
                 APIManager.pickUpPackage(for: package.id, completion: { [weak self] rawResponse in
@@ -244,8 +257,10 @@ extension PackageRoutesViewController: TimelineTableViewCellDelegate {
                     case let .success(response):
                         if response.status.success {
                             self?.getTransportationPackages?.packages[indexPath.section] = response.package
+                            self?.reloadAnnotation(for: response.package)
                             self?.timelineTableView.reloadData()
                         } else {
+                            self?.showError(error: BusinessError.unknown)
                         }
                     }
                 })
