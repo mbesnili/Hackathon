@@ -21,6 +21,11 @@ class LoginViewController: BaseViewController {
         usernameTextField.placeholder = R.string.localization.loginUsernamePlaceholderText()
         passwordTextField.placeholder = R.string.localization.loginPasswordPlaceholderText()
         loginButton.setTitle(R.string.localization.loginLoginButtonTitle(), for: [])
+
+        #if DEBUG
+            usernameTextField.text = "mahmut"
+            passwordTextField.text = "sizkimsin"
+        #endif
     }
 
     @IBAction func loginButtonTapped() {

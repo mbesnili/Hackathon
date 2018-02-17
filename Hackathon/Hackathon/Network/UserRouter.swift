@@ -14,9 +14,9 @@ enum UserRouter: APIConfiguration {
     var path: String {
         switch self {
         case .login:
-            return "/user/login"
+            return "user/login"
         case .check:
-            return "/user/check"
+            return "user/check"
         }
     }
 

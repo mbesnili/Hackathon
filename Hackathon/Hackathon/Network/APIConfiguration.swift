@@ -22,9 +22,9 @@ protocol APIConfiguration: URLRequestConvertible {
 extension APIConfiguration {
     var baseUrl: String {
         #if DEBUG
-            return "http://192.168.88.65:3000"
+            return "https://floating-reaches-70596.herokuapp.com/"
         #else
-            return "http://192.168.88.65:3000"
+            return "https://floating-reaches-70596.herokuapp.com/"
         #endif
     }
 }

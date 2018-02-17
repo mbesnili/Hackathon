@@ -16,7 +16,7 @@ enum PackageRouter: APIConfiguration {
     var path: String {
         switch self {
         case .list:
-            return "/package/list"
+            return "package/list"
         }
     }
 
@@ -30,7 +30,7 @@ enum PackageRouter: APIConfiguration {
     var method: HTTPMethod {
         switch self {
         case .list:
-            return .get
+            return Alamofire.HTTPMethod.get
         }
     }
 }
