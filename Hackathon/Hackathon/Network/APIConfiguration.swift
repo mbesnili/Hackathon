@@ -35,6 +35,9 @@ extension APIConfiguration {
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+        if User.current != nil {
+            urlRequest.setValue(User.current!.token, forHTTPHeaderField: "token")
+        }
         return urlRequest
     }
 }
