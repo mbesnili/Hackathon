@@ -1,0 +1,49 @@
+{
+  "status": {
+    "code": 0,
+    "success": true,
+    "message": "Success"
+  },
+  "packages": [
+    {
+      "_id": "5a877200631e256b33570921",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.085745,
+        "longitude": 29.004966
+      },
+      "capacity": {
+        "weight": 8.6615513539244,
+        "pieces": 2
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570922",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.086578,
+        "longitude": 29.008152
+      },
+      "capacity": {
+        "weight": 10.287344029891,
+        "pieces": 6
+      }
+    },
+    {
+      "_id": "5a877200631e256b33570923",
+      "state": "available",
+      "coordinates": {
+        "latitude": 41.087745,
+        "longitude": 29.009966
+      },
+      "capacity": {
+        "weight": 4.7420973466935,
+        "pieces": 4
+      }
+    }
+  ],
+  "gatheringPoint": {
+    "latitude": 41.088578,
+    "longitude": 29.012152
+  }
+}

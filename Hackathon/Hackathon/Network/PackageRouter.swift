@@ -12,11 +12,14 @@ import Foundation
 enum PackageRouter: APIConfiguration {
 
     case list
+    case routes
 
     var path: String {
         switch self {
         case .list:
             return "package/list"
+        case .routes:
+            return "transportation/apply"
         }
     }
 
@@ -24,12 +27,16 @@ enum PackageRouter: APIConfiguration {
         switch self {
         case .list:
             return nil
+        case .routes:
+            return nil
         }
     }
 
     var method: HTTPMethod {
         switch self {
         case .list:
+            return Alamofire.HTTPMethod.get
+        case .routes:
             return Alamofire.HTTPMethod.get
         }
     }

@@ -89,4 +89,30 @@ class APIManager {
             })
         #endif
     }
+
+    static func getTransportationPackages(completion: @escaping (Result<TransportationPackagesResponse>) -> Void) {
+        #if MOCK
+            let data = try! Data(contentsOf: R.file.getPackageRoutesResponseJson()!, options: Data.ReadingOptions.alwaysMapped)
+            guard let dictionary = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any], let transportationPackagesResponse = try? TransportationPackagesResponse(object: dictionary) else {
+                return
+            }
+            completion(.success(transportationPackagesResponse))
+        #else
+            Alamofire.request(PackageRouter.routes).responseJSON(completionHandler: { rawResponse in
+                switch rawResponse.result {
+                case let .failure(error):
+                    completion(.failure(error))
+                case let .success(response):
+                    guard let responseDictionary = response as? [String: Any] else {
+                        return
+                    }
+                    if let transportationPackagesResponse = try? TransportationPackagesResponse(object: responseDictionary) {
+                        completion(.success(transportationPackagesResponse))
+                    } else {
+                        completion(.failure(APIManagerError.parsingError))
+                    }
+                }
+            })
+        #endif
+    }
 }
