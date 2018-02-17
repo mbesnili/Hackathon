@@ -23,7 +23,7 @@ enum PackageRouter: APIConfiguration {
     var parameters: APIParams {
         switch self {
         case .list:
-            return [:]
+            return nil
         }
     }
 
