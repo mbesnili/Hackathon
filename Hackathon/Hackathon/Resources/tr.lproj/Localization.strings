@@ -43,3 +43,5 @@
 "routes.finishButtonTitle" = "Bitir";
 
 "routes.gatheringPointTitle" = "Toplanma noktası";
+
+"user.logoutTitle" = "Çıkış yap";

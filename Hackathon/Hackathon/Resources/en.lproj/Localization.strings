@@ -43,3 +43,5 @@
 "routes.finishButtonTitle" = "Finish Transportation";
 
 "routes.gatheringPointTitle" = "Gathering point";
+
+"user.logoutTitle" = "Logout";

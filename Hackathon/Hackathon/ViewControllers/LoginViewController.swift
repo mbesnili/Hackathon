@@ -34,7 +34,7 @@ class LoginViewController: BaseViewController {
             case let .success(loginResponse):
                 if loginResponse.status.success {
                     User.current = loginResponse.user
-                    self?.performSegue(withIdentifier: R.segue.loginViewController.seguePackageList, sender: nil)
+                    AppDelegate.shared?.loggedIn()
                 } else {
                     self?.showError(error: loginResponse.status.error)
                 }

@@ -11,6 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static var shared: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -48,5 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+    func loggedIn() {
+        window?.rootViewController = R.storyboard.package().instantiateInitialViewController()
+    }
+
+    func loggedOut() {
+        window?.rootViewController = R.storyboard.login().instantiateInitialViewController()
     }
 }
