@@ -178,6 +178,8 @@ extension PackageRoutesViewController: MKMapViewDelegate {
 
         if annotation is PackagePinPointAnnotation {
             view.markerTintColor = (annotation as! PackagePinPointAnnotation).package.state.displayColor
+        } else {
+            view.markerTintColor = UIColor.red
         }
         return view
     }
@@ -233,6 +235,22 @@ extension PackageRoutesViewController: UITableViewDelegate, UITableViewDataSourc
         }
 
         return cell
+    }
+
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section != getTransportationPackages!.packages.count {
+            let package = getTransportationPackages!.packages[indexPath.section]
+            guard let selectedAnnotation = (mapView.annotations.filter { (annotation) -> Bool in
+                if annotation is PackagePinPointAnnotation {
+                    return (annotation as! PackagePinPointAnnotation).package.id == package.id
+                } else {
+                    return false
+                }
+            }.first) else {
+                return
+            }
+            mapView.selectAnnotation(selectedAnnotation, animated: true)
+        }
     }
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
