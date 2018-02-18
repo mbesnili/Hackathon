@@ -19,6 +19,7 @@
 		771464AE2038B04700A61D51 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464AD2038B04700A61D51 /* ArrayExtensions.swift */; };
 		771464B02038D51600A61D51 /* TransportationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464AF2038D51600A61D51 /* TransportationsViewController.swift */; };
 		771464B22038E62D00A61D51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464B12038E62D00A61D51 /* Constants.swift */; };
+		771464B42038F7C900A61D51 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464B32038F7C900A61D51 /* SocketIOManager.swift */; };
 		7736AE6D203768AA00BB6780 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6C203768AA00BB6780 /* Status.swift */; };
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
@@ -91,6 +92,7 @@
 		771464AD2038B04700A61D51 /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		771464AF2038D51600A61D51 /* TransportationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationsViewController.swift; sourceTree = "<group>"; };
 		771464B12038E62D00A61D51 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		771464B32038F7C900A61D51 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		7736AE6C203768AA00BB6780 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7736AE6E20376A8A00BB6780 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		7736AE892037776E00BB6780 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				771464B32038F7C900A61D51 /* SocketIOManager.swift */,
 				7736AE8A2037778A00BB6780 /* APIConfiguration.swift */,
 				7736AE8C20377A5300BB6780 /* UserRouter.swift */,
 				7736AE90203788EA00BB6780 /* APIManager.swift */,
@@ -543,6 +546,8 @@
 				"${BUILT_PRODUCTS_DIR}/Permission/Permission.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/UIFontComplete/UIFontComplete.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -554,6 +559,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Permission.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIFontComplete.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,6 +743,7 @@
 				771464B22038E62D00A61D51 /* Constants.swift in Sources */,
 				7736AEB22037B73000BB6780 /* PackageTableViewCell.swift in Sources */,
 				771464A020385D3F00A61D51 /* BusinessError.swift in Sources */,
+				771464B42038F7C900A61D51 /* SocketIOManager.swift in Sources */,
 				771464B02038D51600A61D51 /* TransportationsViewController.swift in Sources */,
 				771464A4203886A700A61D51 /* JLTGradientPathRenderer.swift in Sources */,
 				7736AEA12037A9E900BB6780 /* Capacity.swift in Sources */,

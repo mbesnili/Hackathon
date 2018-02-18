@@ -20,6 +20,8 @@ target 'Hackathon' do
   pod 'UIFontComplete'
   
   pod 'DeepDiff'
+  pod 'Socket.IO-Client-Swift', '~> 13.1.0'
+
   
   target 'HackathonTests' do
     inherit! :search_paths

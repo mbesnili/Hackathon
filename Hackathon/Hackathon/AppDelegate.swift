@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         User.restoreIfLoggedIn()
+        if User.current?.token != nil {
+            SocketIOManager.sharedInstance.establishConnection(withToken: User.current!.token)
+        }
         setRootViewController()
         window?.makeKeyAndVisible()
         return true
