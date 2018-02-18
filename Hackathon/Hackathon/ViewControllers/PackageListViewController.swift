@@ -123,6 +123,7 @@ class PackageListViewController: BaseViewController {
                 mapView.addAnnotation(PackagePinPointAnnotation(package: package))
             }
         }
+        tableView.reloadData()
     }
 
     @objc func refreshControlValueChanged() {
