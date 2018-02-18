@@ -121,7 +121,7 @@
 		7736AEAE2037B4FF00BB6780 /* PackageListResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PackageListResponse.json; sourceTree = "<group>"; };
 		7736AEB12037B73000BB6780 /* PackageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageTableViewCell.swift; sourceTree = "<group>"; };
 		7736AEB32037B75400BB6780 /* PackageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackageTableViewCell.xib; sourceTree = "<group>"; };
-		7775D31A2036E015000935CA /* Hackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7775D31A2036E015000935CA /* Beam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7775D31D2036E015000935CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7775D31F2036E015000935CA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7775D3222036E015000935CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 		7775D31B2036E015000935CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7775D31A2036E015000935CA /* Hackathon.app */,
+				7775D31A2036E015000935CA /* Beam.app */,
 				7775D32E2036E015000935CA /* HackathonTests.xctest */,
 				7775D3392036E015000935CA /* HackathonUITests.xctest */,
 			);
@@ -399,7 +399,7 @@
 			);
 			name = Hackathon;
 			productName = Hackathon;
-			productReference = 7775D31A2036E015000935CA /* Hackathon.app */;
+			productReference = 7775D31A2036E015000935CA /* Beam.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7775D32D2036E015000935CA /* HackathonTests */ = {
@@ -976,7 +976,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.besnilimustafa.Hackathon;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Beam;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -993,7 +993,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.besnilimustafa.Hackathon;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Beam;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
