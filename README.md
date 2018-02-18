@@ -13,8 +13,8 @@ _Team Members:_
 - [Mustafa Besnili](https://github.com/mbesnili)
 # Technology Stack
 ### Backend
- - Node.js
- - MongoDB
+ - Node.js v9.4.0
+ - MongoDB 3.4
 ### Mobile Application
  - Swift 4.0
  - Xcode 9.2
