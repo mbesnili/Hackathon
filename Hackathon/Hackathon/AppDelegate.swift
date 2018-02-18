@@ -18,10 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         User.restoreIfLoggedIn()
-        if User.current?.token != nil {
-            SocketIOManager.sharedInstance.establishConnection(withToken: User.current!.token)
-        }
         setRootViewController()
+        connectSocketIfLoggedIn()
         window?.makeKeyAndVisible()
         return true
     }
@@ -50,10 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func loggedIn() {
         setRootViewController()
+        connectSocketIfLoggedIn()
     }
 
     func loggedOut() {
         setRootViewController()
+    }
+
+    func connectSocketIfLoggedIn() {
+        if User.current?.token != nil {
+            SocketIOManager.sharedInstance.establishConnection(withToken: User.current!.token)
+        }
     }
 
     private func setRootViewController() {
