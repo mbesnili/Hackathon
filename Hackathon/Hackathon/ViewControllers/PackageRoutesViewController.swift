@@ -50,7 +50,7 @@ class PackageRoutesViewController: BaseViewController {
 
     func group(packages: [Package], with endingPoint: Location) {
 
-        var annotations = [MKPointAnnotation]()
+        var annotations = [MKAnnotation]()
 
         if let currentLocation = currentLocation {
             let userLocationAnnotation = MKPointAnnotation()
@@ -59,15 +59,12 @@ class PackageRoutesViewController: BaseViewController {
             annotations.append(userLocationAnnotation)
         }
 
-        let packageAnnotations = packages.map { (package) -> MKPointAnnotation in
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: package.coordinates.latitude, longitude: package.coordinates.longitude)
-            annotation.title = package.packageDescription
-            annotation.subtitle = package.state.description
+        let packageAnnotations = packages.map { (package) -> PackagePinPointAnnotation in
+            let annotation = PackagePinPointAnnotation(package: package)
             return annotation
         }
 
-        annotations.append(contentsOf: packageAnnotations)
+        annotations.append(contentsOf: packageAnnotations as [MKAnnotation])
 
         let endingPointAnnotation = MKPointAnnotation()
         endingPointAnnotation.coordinate = CLLocationCoordinate2D(latitude: endingPoint.latitude, longitude: endingPoint.longitude)
@@ -77,7 +74,7 @@ class PackageRoutesViewController: BaseViewController {
         draw(annotations: annotations)
     }
 
-    func draw(annotations: [MKPointAnnotation]) {
+    func draw(annotations: [MKAnnotation]) {
         if annotations.count < 2 {
             return
         } else if annotations.count == 2 {
@@ -91,7 +88,7 @@ class PackageRoutesViewController: BaseViewController {
         }
     }
 
-    func draw(source: MKPointAnnotation, destination: MKPointAnnotation, completion: (() -> Void)? = nil) {
+    func draw(source: MKAnnotation, destination: MKAnnotation, completion: (() -> Void)? = nil) {
 
         let sourcePlacemark = MKPlacemark(coordinate: source.coordinate)
         let destinationPlacemark = MKPlacemark(coordinate: destination.coordinate)
@@ -166,7 +163,6 @@ extension PackageRoutesViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? MKPointAnnotation else { return nil }
         let identifier = "MarkerIdentifier"
         var view: MKMarkerAnnotationView
 
@@ -179,32 +175,25 @@ extension PackageRoutesViewController: MKMapViewDelegate {
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
+
+        if annotation is PackagePinPointAnnotation {
+            view.markerTintColor = (annotation as! PackagePinPointAnnotation).package.state.displayColor
+        }
         return view
     }
 
-    func mapView(_: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped _: UIControl) {
-        guard let annotation = view.annotation as? MKPointAnnotation else {
-            return
-        }
-
-        let package = getTransportationPackages?.packages.filter({ (package) -> Bool in
-            package.coordinates.latitude == annotation.coordinate.latitude && package.coordinates.longitude == annotation.coordinate.longitude
-        }).first
-        if package != nil {
-        }
-    }
-
     func reloadAnnotation(for package: Package) {
-        for annotation in mapView.annotations {
-            if package.coordinates.equals(coordinates: annotation.coordinate) {
-                mapView.removeAnnotation(annotation)
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: package.coordinates.latitude, longitude: package.coordinates.longitude)
-                annotation.title = package.packageDescription
-                annotation.subtitle = package.state.description
-                mapView.addAnnotation(annotation)
+        let oldAnnotations = mapView.annotations.filter { (annotation) -> Bool in
+            if annotation is PackagePinPointAnnotation {
+                return (annotation as! PackagePinPointAnnotation).package.id == package.id
+            } else {
+                return false
             }
         }
+        for annotation in oldAnnotations {
+            mapView.removeAnnotation(annotation)
+        }
+        mapView.addAnnotation(PackagePinPointAnnotation(package: package))
     }
 }
 
