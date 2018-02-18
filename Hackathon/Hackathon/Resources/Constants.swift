@@ -9,5 +9,12 @@
 import Foundation
 
 enum Constants {
-    static let shouldUpdatePackageNotification = Notification.Name("shouldUpdatePackageNotification")
+
+    enum Notifications {
+        static let shouldUpdatePackageNotification = Notification.Name("shouldUpdatePackageNotification")
+    }
+
+    enum SocketEventKeys {
+        static let packageStateChanged = "packageStateChanged"
+    }
 }

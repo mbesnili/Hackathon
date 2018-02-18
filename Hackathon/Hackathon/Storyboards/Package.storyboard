@@ -17,14 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gFh-hX-znS">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-eG-dMV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PUa-HX-Cn5">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="TaB-Ya-fbV" id="GdR-rl-asZ"/>
+                                        </connections>
+                                    </mapView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gFh-hX-znS">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="TaB-Ya-fbV" id="i4Y-rZ-Hyi"/>
+                                            <outlet property="delegate" destination="TaB-Ya-fbV" id="dzg-iO-0Ts"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="TaB-Ya-fbV" id="i4Y-rZ-Hyi"/>
-                                    <outlet property="delegate" destination="TaB-Ya-fbV" id="dzg-iO-0Ts"/>
-                                </connections>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PUa-HX-Cn5" secondAttribute="bottom" id="52Y-WA-YN4"/>
+                                    <constraint firstItem="gFh-hX-znS" firstAttribute="top" secondItem="gj2-eG-dMV" secondAttribute="top" id="5s0-iM-DrT"/>
+                                    <constraint firstItem="PUa-HX-Cn5" firstAttribute="leading" secondItem="gj2-eG-dMV" secondAttribute="leading" id="AaB-JS-jb4"/>
+                                    <constraint firstAttribute="bottom" secondItem="gFh-hX-znS" secondAttribute="bottom" id="Dcg-Om-mUn"/>
+                                    <constraint firstAttribute="trailing" secondItem="PUa-HX-Cn5" secondAttribute="trailing" id="Oj0-lm-GlX"/>
+                                    <constraint firstAttribute="trailing" secondItem="gFh-hX-znS" secondAttribute="trailing" id="QW0-dT-qyN"/>
+                                    <constraint firstItem="gFh-hX-znS" firstAttribute="leading" secondItem="gj2-eG-dMV" secondAttribute="leading" id="fYp-1g-2fw"/>
+                                    <constraint firstItem="PUa-HX-Cn5" firstAttribute="top" secondItem="gj2-eG-dMV" secondAttribute="top" id="xbC-8w-4yf"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZX-nt-k6t">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <constraints>
@@ -38,26 +60,35 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gFh-hX-znS" firstAttribute="leading" secondItem="aj2-H8-V25" secondAttribute="leading" id="6Ld-Fw-TO7"/>
+                            <constraint firstItem="gj2-eG-dMV" firstAttribute="leading" secondItem="aj2-H8-V25" secondAttribute="leading" id="06c-3K-0WE"/>
                             <constraint firstItem="uZX-nt-k6t" firstAttribute="trailing" secondItem="aj2-H8-V25" secondAttribute="trailing" id="7Cf-ap-wSt"/>
-                            <constraint firstItem="gFh-hX-znS" firstAttribute="top" secondItem="aj2-H8-V25" secondAttribute="top" id="KaB-wl-bjA"/>
-                            <constraint firstItem="gFh-hX-znS" firstAttribute="trailing" secondItem="aj2-H8-V25" secondAttribute="trailing" id="gsl-md-Jta"/>
+                            <constraint firstItem="gj2-eG-dMV" firstAttribute="top" secondItem="aj2-H8-V25" secondAttribute="top" id="AyO-eo-SFa"/>
+                            <constraint firstItem="gj2-eG-dMV" firstAttribute="trailing" secondItem="aj2-H8-V25" secondAttribute="trailing" id="GEW-WE-uyl"/>
                             <constraint firstItem="uZX-nt-k6t" firstAttribute="bottom" secondItem="aj2-H8-V25" secondAttribute="bottom" id="hzu-II-5Wl"/>
-                            <constraint firstItem="uZX-nt-k6t" firstAttribute="top" secondItem="gFh-hX-znS" secondAttribute="bottom" id="igR-oG-vTJ"/>
                             <constraint firstItem="uZX-nt-k6t" firstAttribute="leading" secondItem="aj2-H8-V25" secondAttribute="leading" id="kbZ-IU-ull"/>
+                            <constraint firstItem="uZX-nt-k6t" firstAttribute="top" secondItem="gj2-eG-dMV" secondAttribute="bottom" id="pRP-hc-gLp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aj2-H8-V25"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ddf-bd-rGl"/>
+                    <navigationItem key="navigationItem" id="Ddf-bd-rGl">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-map-50" id="uPJ-3f-Ob5">
+                            <connections>
+                                <action selector="rightBarButtonItemTapped:" destination="TaB-Ya-fbV" id="Pkh-SA-W3g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="applyButton" destination="uZX-nt-k6t" id="5uE-xA-aZp"/>
+                        <outlet property="containerView" destination="gj2-eG-dMV" id="jiD-rN-ey3"/>
+                        <outlet property="mapView" destination="PUa-HX-Cn5" id="C31-65-j3i"/>
+                        <outlet property="rightBarButtonItem" destination="uPJ-3f-Ob5" id="pX4-t7-3Zb"/>
                         <outlet property="tableView" destination="gFh-hX-znS" id="Ich-k1-lhp"/>
                         <segue destination="7v3-Mu-XAj" kind="show" identifier="seguePackageRoutes" id="LCx-Bb-6Ue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AND-ME-1Wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="550" y="-468"/>
+            <point key="canvasLocation" x="549.60000000000002" y="-468.21589205397305"/>
         </scene>
         <!--Package Routes View Controller-->
         <scene sceneID="lea-Kq-sOM">
@@ -165,7 +196,10 @@
             <point key="canvasLocation" x="-202.40000000000001" y="23.838080959520241"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-map-50" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zxj-a5-epo"/>
+        <segue reference="LCx-Bb-6Ue"/>
     </inferredMetricsTieBreakers>
 </document>

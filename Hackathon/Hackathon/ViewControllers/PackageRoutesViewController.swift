@@ -282,7 +282,7 @@ extension PackageRoutesViewController: TimelineTableViewCellDelegate {
                             self?.getTransportationPackages?.packages[indexPath.section] = response.package
                             self?.reloadAnnotation(for: response.package)
                             self?.timelineTableView.reloadData()
-                            NotificationCenter.default.post(name: Constants.shouldUpdatePackageNotification, object: nil, userInfo: ["package": package])
+                            NotificationCenter.default.post(name: Constants.Notifications.shouldUpdatePackageNotification, object: nil, userInfo: ["package": package])
                         } else {
                             self?.showError(error: BusinessError.unknown)
                         }

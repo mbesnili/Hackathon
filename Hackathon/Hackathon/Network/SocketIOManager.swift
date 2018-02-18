@@ -22,14 +22,21 @@ class SocketIOManager: NSObject {
         super.init()
         let socket = socketManager.defaultSocket
 
-        socket.on("connect") { _, _ in
-        }
-
-        socket.on("packageStateChanged") { data, _ in
-            print("data: \(data)")
-        }
-
         socket.on(clientEvent: .disconnect) { _, _ in
+        }
+
+        socket.on(clientEvent: .connect) { _, _ in
+        }
+
+        socket.on(Constants.SocketEventKeys.packageStateChanged) { data, _ in
+            guard let attributes = data[0] as? [[String: Any]] else {
+                return
+            }
+
+            let packages = attributes.map({ (attribute) -> Package in
+                try! Package(object: attribute)
+            })
+            NotificationCenter.default.post(name: Constants.Notifications.shouldUpdatePackageNotification, object: nil, userInfo: ["packages": packages])
         }
     }
 

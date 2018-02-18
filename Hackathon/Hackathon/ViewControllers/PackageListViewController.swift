@@ -8,14 +8,42 @@
 
 import CoreLocation
 import DeepDiff
+import MapKit
 import Permission
 import UIKit
 
 class PackageListViewController: BaseViewController {
 
+    enum ListType {
+        case map
+        case table
+
+        mutating func toggle() {
+            switch self {
+            case .map:
+                self = .table
+            case .table:
+                self = .map
+            }
+        }
+
+        var image: UIImage {
+            switch self {
+            case .map:
+                return #imageLiteral(resourceName: "icons8-menu-filled-50")
+            case .table:
+                return #imageLiteral(resourceName: "icons8-map-50")
+            }
+        }
+    }
+
     @IBOutlet var applyButton: UIButton!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var rightBarButtonItem: UIBarButtonItem!
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var containerView: UIView!
 
+    var listType = ListType.table
     var location: CLLocation?
     let locationManager = CLLocationManager()
     var locationDisabled = true
@@ -26,8 +54,10 @@ class PackageListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = R.string.localization.packagesTitle()
+        tableView.alpha = 1.0
+        mapView.alpha = 0.0
 
+        title = R.string.localization.packagesTitle()
         applyButton.setTitle(R.string.localization.packagesDeliverPackagesButtonTitle(), for: [])
 
         tableView.register(cellType: PackageTableViewCell.self)
@@ -54,22 +84,43 @@ class PackageListViewController: BaseViewController {
         }
 
         refreshControlValueChanged()
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePackage), name: Constants.shouldUpdatePackageNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePackage), name: Constants.Notifications.shouldUpdatePackageNotification, object: nil)
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 
+    func prepareMapView() {
+        let annotations = packages.map { (package) -> MKPointAnnotation in
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: package.coordinates.latitude, longitude: package.coordinates.longitude)
+            annotation.title = package.packageDescription
+            annotation.subtitle = package.state.description
+            return annotation
+        }
+        mapView.showAnnotations(annotations, animated: true)
+    }
+
     @objc func updatePackage(_ notification: Notification) {
-        guard let package = notification.userInfo?["package"] as? Package else {
+
+        guard let newPackages = notification.userInfo?["packages"] as? [Package] else {
             return
         }
-        let oldPackageIndex = packages.index { (p) -> Bool in
-            return p.id == package.id
+        for package in newPackages {
+            let oldPackageIndex = packages.index { (p) -> Bool in
+                return p.id == package.id
+            }
+            if oldPackageIndex != nil {
+                packages[oldPackageIndex!] = package
+            }
         }
-        if oldPackageIndex != nil {
-            packages[oldPackageIndex!] = package
+
+        if newPackages.count == 1 {
+            let coordinate = CLLocationCoordinate2D(latitude: newPackages.first!.coordinates.latitude, longitude: newPackages.first!.coordinates.longitude)
+            let annotationPoint = MKMapPointForCoordinate(coordinate)
+            let pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 1.0, 1.0)
+            mapView.setVisibleMapRect(pointRect, animated: true)
         }
     }
 
@@ -91,6 +142,7 @@ class PackageListViewController: BaseViewController {
                     strongSelf.tableView.reload(changes: changes) { _ in
                     }
                 }
+                strongSelf.prepareMapView()
             case let .failure(error):
                 self?.showError(error: error)
             }
@@ -113,6 +165,17 @@ class PackageListViewController: BaseViewController {
 
         if let typedInfo = R.segue.packageListViewController.seguePackageRoutes(segue: segue) {
             typedInfo.destination.currentLocation = location!
+        }
+    }
+
+    @IBAction func rightBarButtonItemTapped(_: Any) {
+        listType.toggle()
+        rightBarButtonItem.image = listType.image
+
+        UIView.transition(with: containerView, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+            self.tableView.alpha = 1 - self.tableView.alpha
+            self.mapView.alpha = 1 - self.mapView.alpha
+        }) { _ in
         }
     }
 }
@@ -148,5 +211,24 @@ extension PackageListViewController: UITableViewDataSource, UITableViewDelegate 
         let cell: PackageTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.prepare(with: packages[indexPath.row])
         return cell
+    }
+}
+
+extension PackageListViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? MKPointAnnotation else { return nil }
+        let identifier = "MarkerIdentifier"
+        var view: MKMarkerAnnotationView
+
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
     }
 }
