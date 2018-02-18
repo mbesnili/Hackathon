@@ -29,7 +29,9 @@ class LoginViewController: BaseViewController {
     }
 
     @IBAction func loginButtonTapped() {
+        startAnimating()
         APIManager.login(with: usernameTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] rawLoginResponse in
+            self?.stopAnimating()
             switch rawLoginResponse {
             case let .success(loginResponse):
                 if loginResponse.status.success {
