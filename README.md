@@ -16,7 +16,8 @@ _Team Members:_
  - Node.js
  - MongoDB
 ### Mobile Application
- - Swift
+ - Swift 4.0
+ - Xcode 9.2
 
 # Third Party Libraries
 
@@ -44,5 +45,4 @@ _Team Members:_
 - [R.swift](https://github.com/mac-cain13/R.swift)
 - [UIFontComplete](https://github.com/Nirma/UIFontComplete)
 
-
-  
+ 
