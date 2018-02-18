@@ -20,6 +20,7 @@
 		771464B02038D51600A61D51 /* TransportationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464AF2038D51600A61D51 /* TransportationsViewController.swift */; };
 		771464B22038E62D00A61D51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464B12038E62D00A61D51 /* Constants.swift */; };
 		771464B42038F7C900A61D51 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464B32038F7C900A61D51 /* SocketIOManager.swift */; };
+		771464B620395F2C00A61D51 /* PackagePinPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771464B520395F2C00A61D51 /* PackagePinPointAnnotation.swift */; };
 		7736AE6D203768AA00BB6780 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6C203768AA00BB6780 /* Status.swift */; };
 		7736AE6F20376A8A00BB6780 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE6E20376A8A00BB6780 /* Location.swift */; };
 		7736AE7120376B6000BB6780 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7736AE7020376B6000BB6780 /* Package.swift */; };
@@ -93,6 +94,7 @@
 		771464AF2038D51600A61D51 /* TransportationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationsViewController.swift; sourceTree = "<group>"; };
 		771464B12038E62D00A61D51 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		771464B32038F7C900A61D51 /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		771464B520395F2C00A61D51 /* PackagePinPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagePinPointAnnotation.swift; sourceTree = "<group>"; };
 		7736AE6C203768AA00BB6780 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		7736AE6E20376A8A00BB6780 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7736AE7020376B6000BB6780 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				77C121412037ECA000223BCE /* PickUpPackageResponse.swift */,
 				77C121432037ED0300223BCE /* FinishTransportationResponse.swift */,
 				7714649D203847B600A61D51 /* User.swift */,
+				771464B520395F2C00A61D51 /* PackagePinPointAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				7736AE8B2037778A00BB6780 /* APIConfiguration.swift in Sources */,
 				7736AE98203792E100BB6780 /* PackageListViewController.swift in Sources */,
 				7736AE6F20376A8A00BB6780 /* Location.swift in Sources */,
+				771464B620395F2C00A61D51 /* PackagePinPointAnnotation.swift in Sources */,
 				7736AE6D203768AA00BB6780 /* Status.swift in Sources */,
 				7736AE80203771F400BB6780 /* R.generated.swift in Sources */,
 				77C1214D2038264000223BCE /* Formatter.swift in Sources */,

@@ -92,11 +92,8 @@ class PackageListViewController: BaseViewController {
     }
 
     func prepareMapView() {
-        let annotations = packages.map { (package) -> MKPointAnnotation in
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: package.coordinates.latitude, longitude: package.coordinates.longitude)
-            annotation.title = package.packageDescription
-            annotation.subtitle = package.state.description
+        let annotations = packages.map { (package) -> PackagePinPointAnnotation in
+            let annotation = PackagePinPointAnnotation(package: package)
             return annotation
         }
         mapView.showAnnotations(annotations, animated: true)
@@ -114,13 +111,17 @@ class PackageListViewController: BaseViewController {
             if oldPackageIndex != nil {
                 packages[oldPackageIndex!] = package
             }
-        }
 
-        if newPackages.count == 1 {
-            let coordinate = CLLocationCoordinate2D(latitude: newPackages.first!.coordinates.latitude, longitude: newPackages.first!.coordinates.longitude)
-            let annotationPoint = MKMapPointForCoordinate(coordinate)
-            let pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 1.0, 1.0)
-            mapView.setVisibleMapRect(pointRect, animated: true)
+            guard let annotations = mapView.annotations as? [PackagePinPointAnnotation] else {
+                return
+            }
+            let annotationIndex = annotations.index(where: { (a) -> Bool in
+                a.package.id == package.id
+            })
+            if annotationIndex != nil {
+                mapView.removeAnnotation(annotations[annotationIndex!])
+                mapView.addAnnotation(PackagePinPointAnnotation(package: package))
+            }
         }
     }
 
@@ -216,16 +217,18 @@ extension PackageListViewController: UITableViewDataSource, UITableViewDelegate 
 
 extension PackageListViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? MKPointAnnotation else { return nil }
+        guard let annotation = annotation as? PackagePinPointAnnotation else { return nil }
         let identifier = "MarkerIdentifier"
         var view: MKMarkerAnnotationView
 
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
+            view.markerTintColor = annotation.package.state.displayColor
         } else {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
+            view.markerTintColor = annotation.package.state.displayColor
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
